@@ -97,6 +97,15 @@ const Form = () => {
                         <option value="lbs">lbs / ft</option>
                     </select>
                     <br />
+                    <br/>
+                    Dietary Restrictions:
+                    <input
+                        type="text"
+                        value={weight}
+                        onChange={handleWeightChange}
+                        placeholder="Enter your dietary restrictions"
+                    />
+                    <br/>
           Active:
           <input
             type="range"
