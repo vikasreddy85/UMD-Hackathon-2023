@@ -1,4 +1,4 @@
-import FrontPage from "./components/FrontPage"
+import FrontPage from "./components/Banner"
 import './App.css';
 
 function App() {

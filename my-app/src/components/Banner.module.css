@@ -1,36 +1,40 @@
+/* CSS */
 .container {
-    height: 100vw;
-}
+    height: 100vh;
+  }
   
-.banner {
-    margin-top: 2.5vw;
-    height: 20vw;
+  .banner {
+    margin-top: 2.5vh;
+    height: 30vh;
     width: 100%;
     background-color: #e31733;
     display: flex;
-}
-
-.position {
-    height: 20vw;
+  }
+  
+  .position {
+    height: 20vh;
     width: 100%;
     display: inline-block;
-}
+  }
   
-.image {
-    height: 20vw;
+  .image {
+    height: 30vh;
     background-image: url(https://cdn.winsightmedia.com/platform/files/public/2022-11/background/Blank%201800%20x%20945%20%2814%29.jpg?VersionId=IwANrhYsyWg60l9xsxAzWKVl5jLKSayT);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: 30%;
-}
+  }
   
-.text {
+  .text {
+    margin-top: 10px;
     width: 50%;
     height: 50px;
-    padding: 10px;
-    font-size: 25px;
+    padding: 55px;
+    margin-left: 25px;
+    font-size: 40px;
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
-}
+  }
+  
