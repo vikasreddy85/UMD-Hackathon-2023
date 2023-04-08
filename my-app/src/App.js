@@ -1,10 +1,14 @@
-import FrontPage from "./components/FrontPage"
+import Banner from "./components/Banner"
+import Form from "./components/Form"
+import Quotes from "./components/Quotes"
 import './App.css';
 
 function App() {
   return (
     <div>
-      <FrontPage/>
+      <Banner/>
+      <Form/>
+      <Quotes/>
     </div>
   );
 }
