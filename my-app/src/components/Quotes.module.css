@@ -7,8 +7,7 @@
   margin-top: 2.5vh;
   height: 30vh;
   width: 100%;
-  background-color: #e31733;
-  display: flex;
+  background-image: url(https://ggwash.org/images/posts/201506-032142.png);  display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
@@ -25,6 +24,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
   animation-name: slide-in;
   animation-duration: 5s;
   animation-timing-function: ease-in-out;

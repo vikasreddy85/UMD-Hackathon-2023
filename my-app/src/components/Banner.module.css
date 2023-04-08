@@ -8,7 +8,7 @@
   margin-top: 2.5vh;
   height: 30vh;
   width: 100%;
-  background-color: #e31733;
+  background-image: url(https://ggwash.org/images/posts/201506-032142.png);
   display: flex;
 }
 
@@ -16,6 +16,10 @@
   height: 20vh;
   width: 100%;
   display: inline-block;
+}
+
+.opacity{
+  opacity: 0.8;
 }
 
 .image {
@@ -38,5 +42,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
 }
-  
+
+

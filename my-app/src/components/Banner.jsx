@@ -20,7 +20,7 @@ const Banner = () => {
 
   return (
     <div className={classes.container}>
-      <div className={classes.banner}>
+        <div className={classes.banner}>
         <div className={classes.position}>
           <div className={classes.image}></div>
         </div>
