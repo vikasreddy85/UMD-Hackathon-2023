@@ -6,9 +6,24 @@ import './App.css';
 
 function App() {
   function handleFormSubmit(formData) {
-    console.log(formData.name);
-  }
+    console.log(formData);
+    /* query, energy,*/
+    const dining = {
 
+    }
+    
+    const mango = {
+      api_key: 'MPGogOa9dZbgva6VN9LCcgdovtIMdFIDk6Uv4hlO',
+      query: 'mango',
+      dataType: ["Survey (FNDDS)"],
+      pagesize: 1,
+      location: "Y",
+      time: "lunch",
+      dietary: "none",
+    }
+
+  }
+  
   return (
     <div>
       <Banner/>
