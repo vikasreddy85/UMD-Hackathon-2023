@@ -1,10 +1,12 @@
-import FrontPage from "./components/Banner"
+import Banner from "./components/Banner"
+import Quotes from "./components/Quotes"
 import './App.css';
 
 function App() {
   return (
     <div>
-      <FrontPage/>
+      <Banner/>
+      <Quotes/>
     </div>
   );
 }

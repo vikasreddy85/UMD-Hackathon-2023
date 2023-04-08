@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import classes from "../components/Banner.module.css";
-
+/*Create the line for typewritter effect!*/
 const Banner = () => {
   const [keywords, setKeywords] = useState(['Fit For Life', 'Putting Health First', 'Move Your Body, Shape Your Future', 'Commit, Perform, Succeed',    'Don\'t Quit, Get Fit', 'Stronger, Healthier, Happier', 'Strong Body, Strong Mind', 'It’s Never Too Late To Lose The Weight', 'Stronger every day']);
   const [currentKeywordIndex, setCurrentKeywordIndex] = useState(0);
