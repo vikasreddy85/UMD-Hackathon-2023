@@ -98,6 +98,14 @@ const Form = () => {
                     </select>
                     <br />
                     <br/>
+                    Location:
+                    <select value={unit} onChange={handleUnitChange}>
+                        <option value="South Diner"> South Diner</option>
+                        <option value="North Diner">North Diner</option>
+                        <option value="">Yahentamitsi Dining Hall </option>
+                    </select>
+                    <br/>
+                    <br/>
                     Dietary Restrictions:
                     <input
                         type="text"
