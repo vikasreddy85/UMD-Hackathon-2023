@@ -2,17 +2,6 @@ import React, { useState, useEffect } from 'react';
 import classes from "../components/Form.module.css";
 
 const Form = () => {
-    const [currentKeywordIndex, setCurrentKeywordIndex] = useState(0);
-    const keywords = ["Get Fit", "Stay Healthy", "Build Muscle"];
-    const currentKeyword = keywords[currentKeywordIndex];
-
-    useEffect(() => {
-        const intervalId = setInterval(() => {
-            setCurrentKeywordIndex((prevIndex) => (prevIndex + 1) % keywords.length);
-        }, 3000);
-        return () => clearInterval(intervalId);
-    }, [keywords]);
-
     const handleNameChange = (event) => {
         setName(event.target.value);
     };
@@ -68,18 +57,9 @@ const Form = () => {
 
     return (
         <div className={classes.container}>
-            <div className={classes.banner}>
-                <div className={classes.position}>
-                    <div className={classes.image}></div>
-                    <div className={classes.image}></div>
-                </div>
-                <div className={classes.text}>
-                    <h2>{currentKeyword}</h2>
-                </div>
-            </div>
             <div className={classes.inputs}>
                 <form onSubmit={handleSubmit}>
-                    First Name:
+                    Name:
                     <input
                         type="text"
                         value={name}
@@ -94,12 +74,6 @@ const Form = () => {
                         onChange={handleAgeChange}
                         placeholder="Enter your age"
                     />
-                    <br />
-                    Metric:
-                    <select value={unit} onChange={handleUnitChange}>
-                        <option value="kg">kg</option>
-                        <option value="lbs">lbs</option>
-                    </select>
                     <br />
                     Height:
                     <input
@@ -117,6 +91,13 @@ const Form = () => {
                         placeholder="Enter your weight"
                     />
                     <br/>
+                    Metric:
+                    <select value={unit} onChange={handleUnitChange}>
+                        <option value="kg">kg / cm</option>
+                        <option value="lbs">lbs / ft</option>
+                    </select>
+                    <br />
+          Active:
           <input
             type="range"
             min="1"
