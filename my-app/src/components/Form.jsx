@@ -47,7 +47,7 @@ const Form = (props) => {
             goal,
             dietaryRestrictions
           };
-          props.onSubmit(formData); // call the onSubmit function passed as a prop
+          props.onSubmit(formData); 
         } else {
           alert("Please enter a valid name, age and weight.");
         }
@@ -122,7 +122,7 @@ const Form = (props) => {
                     Dietary Restrictions:
                     <input
                         type="text"
-                        value={weight}
+                        value={dietaryRestrictions}
                         onChange={handleDietaryRestrictions}
                         placeholder="Enter your dietary restrictions"
                     />
