@@ -1,3 +1,10 @@
 .container{
     height: 100vh;
+    width: auto;
+}
+
+.banner{
+    height: 20vh;
+    width: auto;
+    background-color: aqua;
 }
