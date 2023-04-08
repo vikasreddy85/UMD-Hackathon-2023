@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import classes from "../components/Form.module.css";
 
-const Form = () => {
+const Form = (props) => {
     const handleNameChange = (event) => {
         setName(event.target.value);
     };
@@ -30,16 +30,28 @@ const Form = () => {
         setGoal(event.target.value);
     };
 
+    const handleDietaryRestrictions = (event) => {
+        setDietaryRestrictions(event.target.value);
+    };
+    
     const handleSubmit = (event) => {
         event.preventDefault();
         if (name.trim() !== "" && !isNaN(age) && !isNaN(weight)) {
-            console.log(
-                `Name: ${name}, Age: ${age}, Units: ${unit}, Height: ${height}, Weight: ${weight}, Active: ${active}, Goal: ${goal}`
-            );
+          const formData = {
+            name,
+            age,
+            unit,
+            height,
+            weight,
+            active,
+            goal,
+            dietaryRestrictions
+          };
+          props.onSubmit(formData); // call the onSubmit function passed as a prop
         } else {
-            alert("Please enter a valid name, age and weight.");
+          alert("Please enter a valid name, age and weight.");
         }
-    };
+      };
 
     const handleClear = () => {
         setName("");
@@ -54,6 +66,7 @@ const Form = () => {
     const [weight, setWeight] = useState("");
     const [active, setActive] = useState(3.0);
     const [goal, setGoal] = useState("Cut Weight");
+    const[dietaryRestrictions, setDietaryRestrictions] = useState("");
 
     return (
         <div className={classes.container}>
@@ -110,7 +123,7 @@ const Form = () => {
                     <input
                         type="text"
                         value={weight}
-                        onChange={handleWeightChange}
+                        onChange={handleDietaryRestrictions}
                         placeholder="Enter your dietary restrictions"
                     />
                     <br/>
