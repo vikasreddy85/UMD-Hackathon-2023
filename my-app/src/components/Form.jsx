@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import classes from "../components/Form.module.css";
 
-const Form = () => {
+const Form = (props) => {
     const handleNameChange = (event) => {
         setName(event.target.value);
     };
@@ -22,6 +22,10 @@ const Form = () => {
         setWeight(event.target.value);
     };
 
+    const handleLocationChange = (event) => {
+      setLocation(event.target.value);
+    };
+
     const handleActiveChange = (event) => {
         setActive(event.target.value);
     };
@@ -30,16 +34,29 @@ const Form = () => {
         setGoal(event.target.value);
     };
 
+    const handleDietaryRestrictions = (event) => {
+        setDietaryRestrictions(event.target.value);
+    };
+    
     const handleSubmit = (event) => {
         event.preventDefault();
         if (name.trim() !== "" && !isNaN(age) && !isNaN(weight)) {
-            console.log(
-                `Name: ${name}, Age: ${age}, Units: ${unit}, Height: ${height}, Weight: ${weight}, Active: ${active}, Goal: ${goal}`
-            );
+          const formData = {
+            name,
+            age,
+            unit,
+            height,
+            weight,
+            location,
+            active,
+            goal,
+            dietaryRestrictions,
+          };
+          props.onSubmit(formData); // call the onSubmit function passed as a prop
         } else {
-            alert("Please enter a valid name, age and weight.");
+          alert("Please enter a valid name, age and weight.");
         }
-    };
+      };
 
     const handleClear = () => {
         setName("");
@@ -52,8 +69,10 @@ const Form = () => {
     const [unit, setUnit] = useState("kg");
     const [height, setHeight] = useState("");
     const [weight, setWeight] = useState("");
+    const [location, setLocation] = useState("South Diner");
     const [active, setActive] = useState(3.0);
-    const [goal, setGoal] = useState("Cut Weight");
+    const [goal, setGoal] = useState("");
+    const[dietaryRestrictions, setDietaryRestrictions] = useState("none");
 
     return (
         <div className={classes.container}>
@@ -74,6 +93,12 @@ const Form = () => {
                         onChange={handleAgeChange}
                         placeholder="Enter your age"
                     />
+                    <br/>
+                    Metric:
+                    <select value={unit} onChange={handleUnitChange}>
+                        <option value="kg">kg / cm</option>
+                        <option value="lbs">lbs / ft</option>
+                    </select>
                     <br />
                     Height:
                     <input
@@ -91,20 +116,24 @@ const Form = () => {
                         placeholder="Enter your weight"
                     />
                     <br/>
-                    Metric:
-                    <select value={unit} onChange={handleUnitChange}>
-                        <option value="kg">kg / cm</option>
-                        <option value="lbs">lbs / ft</option>
+                    <br/>
+                    Location:
+                    <select value={location} onChange={handleLocationChange}>
+                        <option value="South Diner"> South Diner</option>
+                        <option value="North Diner">North Diner</option>
+                        <option value="Y Diner">Yahentamitsi Dining Hall </option>
                     </select>
-                    <br />
+                    <br/>
                     <br/>
                     Dietary Restrictions:
-                    <input
-                        type="text"
-                        value={weight}
-                        onChange={handleWeightChange}
-                        placeholder="Enter your dietary restrictions"
-                    />
+                    <select value={dietaryRestrictions}onChange={handleDietaryRestrictions}>
+                        <option value="none">None</option>
+                        <option value="soy">Soy</option>
+                        <option value="vegitarian">Vegitarian</option>
+                        <option value="dairy">Dairy</option>
+                        <option value="eggs">Eggs</option>
+                        <option value="gluten">Glutten</option>
+                    </select>
                     <br/>
           Active:
           <input
