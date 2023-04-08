@@ -521,7 +521,7 @@ export const South_Diner = {
 
 export const Yahentamitsi = {
   breakfast: [Pancakes_Plain, Pancakes_Chocolate_Chips, Mashed_Potatoes,Scrambled_Egg, Chorizo, French_Toast, English_Muffin, Yogurt, Greek_Yogurt, Strawberry_Yogurt, Brownie, Ice_Cream],
-
+  
   lunch: [Pancakes_Plain, Scrambled_Egg, Sandwich, Grilled_Hot_Dog, Onion_Marmalade_Sandwich, Chorizo, French_Toast, English_Muffin, Greek_Yogurt, Yogurt, Strawberry_Yogurt, Biscuit, Mashed_Potatoes, Cornbread, Croissant, Buffalo_Chicken_Pizza, Cheese_Pizza, Margherita_Pizza, Pepperoni_Pizza],
   
   dinner: [Grilled_Hot_Dog, Onion_Marmalade_Sandwich, White_Chicken, Pesto_Pasta, Philly_Cheese_Steak_Pizza, Vegetable_Pizza, Spaghetti]

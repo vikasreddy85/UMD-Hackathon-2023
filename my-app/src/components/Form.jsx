@@ -1,74 +1,80 @@
-import React, { useState, useEffect } from 'react';
-import classes from "../components/Form.module.css";
+import React, { useState } from 'react';
+import classes from "./Form.module.css";
 
 const Form = (props) => {
-    const handleNameChange = (event) => {
-        setName(event.target.value);
-    };
+  const [name, setName] = useState("");
+  const [age, setAge] = useState("");
+  const [unit, setUnit] = useState("kg");
+  const [height, setHeight] = useState("");
+  const [weight, setWeight] = useState("");
+  const [location, setLocation] = useState("South Diner");
+  const [active, setActive] = useState(3.0);
+  const [goal, setGoal] = useState("");
+  const [dietaryRestrictions, setDietaryRestrictions] = useState("none");
 
-    const handleAgeChange = (event) => {
-        setAge(event.target.value);
-    };
+  const handleNameChange = (event) => {
+    setName(event.target.value);
+  };
 
-    const handleUnitChange = (event) => {
-        setUnit(event.target.value);
-    };
+  const handleAgeChange = (event) => {
+    setAge(event.target.value);
+  };
 
-    const handleHeightChange = (event) => {
-        setHeight(event.target.value);
-    };
+  const handleLocationChange = (event) => {
+    setLocation(event.target.value);
+  };
 
-    const handleWeightChange = (event) => {
-        setWeight(event.target.value);
-    };
+  const handleUnitChange = (event) => {
+    setUnit(event.target.value);
+  };
 
-    const handleActiveChange = (event) => {
-        setActive(event.target.value);
-    };
+  const handleHeightChange = (event) => {
+    setHeight(event.target.value);
+  };
 
-    const handleGoalChange = (event) => {
-        setGoal(event.target.value);
-    };
+  const handleWeightChange = (event) => {
+    setWeight(event.target.value);
+  };
 
-    const handleDietaryRestrictions = (event) => {
-        setDietaryRestrictions(event.target.value);
-    };
-    
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        if (name.trim() !== "" && !isNaN(age) && !isNaN(weight)) {
-          const formData = {
-            name,
-            age,
-            unit,
-            height,
-            weight,
-            active,
-            goal,
-            dietaryRestrictions
-          };
-          props.onSubmit(formData); 
-        } else {
-          alert("Please enter a valid name, age and weight.");
-        }
+  const handleActiveChange = (event) => {
+    setActive(event.target.value);
+  };
+
+  const handleGoalChange = (event) => {
+    setGoal(event.target.value);
+  };
+
+  const handleDietaryRestrictions = (event) => {
+    setDietaryRestrictions(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (name.trim() !== "" && !isNaN(age) && !isNaN(weight)) {
+      const formData = {
+        name,
+        age,
+        unit,
+        height,
+        weight,
+        location,
+        active,
+        goal,
+        dietaryRestrictions,
       };
+      props.onSubmit(formData);
+    } else {
+      alert("Please enter a valid name, age, and weight.");
+    }
+  };
 
-    const handleClear = () => {
-        setName("");
-        setAge("");
-        setWeight("");
-    };
+  const handleClear = () => {
+    setName("");
+    setAge("");
+    setWeight("");
+  };
 
-    const [name, setName] = useState("");
-    const [age, setAge] = useState("");
-    const [unit, setUnit] = useState("kg");
-    const [height, setHeight] = useState("");
-    const [weight, setWeight] = useState("");
-    const [active, setActive] = useState(3.0);
-    const [goal, setGoal] = useState("Cut Weight");
-    const[dietaryRestrictions, setDietaryRestrictions] = useState("");
-
-    return (
+  return (
         <div className={classes.container}>
             <div className={classes.inputs}>
                 <form onSubmit={handleSubmit}>
@@ -109,23 +115,24 @@ const Form = (props) => {
                         <option value="kg">kg / cm</option>
                         <option value="lbs">lbs / ft</option>
                     </select>
-                    <br />
                     <br/>
                     Location:
-                    <select value={unit} onChange={handleUnitChange}>
+                    <select value={location} onChange={handleLocationChange}>
                         <option value="South Diner"> South Diner</option>
                         <option value="North Diner">North Diner</option>
-                        <option value="">Yahentamitsi Dining Hall </option>
+                        <option value="Y Diner">Yahentamitsi Dining Hall </option>
                     </select>
                     <br/>
                     <br/>
                     Dietary Restrictions:
-                    <input
-                        type="text"
-                        value={dietaryRestrictions}
-                        onChange={handleDietaryRestrictions}
-                        placeholder="Enter your dietary restrictions"
-                    />
+                    <select value={dietaryRestrictions}onChange={handleDietaryRestrictions}>
+                        <option value="none">None</option>
+                        <option value="soy">Soy</option>
+                        <option value="vegitarian">Vegitarian</option>
+                        <option value="dairy">Dairy</option>
+                        <option value="eggs">Eggs</option>
+                        <option value="gluten">Glutten</option>
+                    </select>
                     <br/>
           Active:
           <input

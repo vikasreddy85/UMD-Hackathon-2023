@@ -6,7 +6,7 @@
 
 .banner {
   margin-top: 2.5vh;
-  height: 30vh;
+  height: 35vh;
   width: 100%;
   background-image: url(https://ggwash.org/images/posts/201506-032142.png);
   display: flex;
@@ -23,7 +23,7 @@
 }
 
 .image {
-  height: 30vh;
+  height: 35vh;
   background-image: url(https://cdn.winsightmedia.com/platform/files/public/2022-11/background/Blank%201800%20x%20945%20%2814%29.jpg?VersionId=IwANrhYsyWg60l9xsxAzWKVl5jLKSayT);
   background-repeat: no-repeat;
   background-size: contain;
@@ -34,7 +34,7 @@
   margin-top: 10px;
   width: 70%;
   height: 50px;
-  padding: 55px;
+  padding: 60px;
   margin-left: 25px;
   font-size: 40px;
   font-family: 'Raleway', sans-serif;
