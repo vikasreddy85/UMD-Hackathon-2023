@@ -1,14 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap');
 
-body {
-  color: #e31933;
-}
-
-form {
-  max-height: 100vw;
-  overflow-y: scroll;
-}
-
 .header {
   display: block;
   width: 50%;
@@ -16,13 +7,8 @@ form {
   font-size: 39px;
   color: #333;
   line-height: 1.2;
-  text-align: left;
-  width: 47%;
+  width: 50%;
   padding: 20px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
 }
 
 .container {
@@ -36,6 +22,11 @@ form {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  position: absolute;
+  width: 100%;
 }
 
 .banner {
@@ -72,7 +63,6 @@ form {
   justify-content: center;
   width: 47%;
   padding: 20px;
-  position: absolute;
   top: 15%;
   right: 0;
   bottom: 0;

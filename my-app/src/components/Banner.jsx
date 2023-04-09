@@ -34,12 +34,10 @@ const Banner = () => {
   const currentBackgroundImageUrl = backgroundImageUrls[currentImageIndex];
 
   return (
-    <div className={classes.container}>
       <div className={classes.banner}>
           <div className={classes.background}>
             <div className={classes.image} style={{ backgroundImage: `linear-gradient(to bottom, rgba(179,205,224,0.7), rgba(245,225,218,0.7), rgba(253,213,209,0.7), rgba(250,180,200,0.7), rgba(247,143,179,0.7), rgba(238,102,153,0.7), rgba(221,52,151,0.7), rgba(197,24,156,0.7), rgba(167,4,164,0.7)), url(${currentBackgroundImageUrl})` }}></div>
           </div>
-        </div>
         <div className={classes.text}>
           <h2>
             <Typewriter
