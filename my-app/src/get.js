@@ -14,6 +14,6 @@ function getData(){
     return fetch(api_url).then(response => response.json());
 }
 
-getData().then(data => console.log(data.foods[0].foodNutrients[0]))
+getData().then(data => console.log(data.foods[0].foodNutrients[3]))
 
 
