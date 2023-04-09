@@ -84,7 +84,6 @@ function App() {
               carbohydrates: data.foods[0].foodNutrients[2].value,
               calories: data.foods[0].foodNutrients[3].value
             }
-            console.log("a1: " + randomIndex1);
             return new_br;
           })
 
@@ -98,7 +97,6 @@ function App() {
               carbohydrates: data.foods[0].foodNutrients[2].value,
               calories: data.foods[0].foodNutrients[3].value
             }
-            console.log("a2: " + randomIndex2);
             return new_lunc;
           })
 
@@ -112,7 +110,6 @@ function App() {
               carbohydrates: data.foods[0].foodNutrients[2].value,
               calories: data.foods[0].foodNutrients[3].value
             }
-            console.log("a3: " + randomIndex3);
             return new_din;
           })
           
@@ -134,7 +131,7 @@ function App() {
         Promise.all(din).then(function(array){
           console.log(array);
         });
-      } else if(dietaryRestrictions == "vegitarian"){
+      } else if(dietaryRestrictions == "vegetarian"){
         let ht1 = Yahentamitsi.breakfast.slice();
         let ht2 = Yahentamitsi.lunch.slice();
         let ht3 = Yahentamitsi.dinner.slice();
@@ -142,17 +139,17 @@ function App() {
         let holder2 = [];
         let holder3 = [];
         for(let j = 0; j < ht1.length; j++){
-          if(ht1[j].dietary.includes("vegitarian")){
+          if(ht1[j].dietary.indexOf("vegetarian") !== -1){
             holder1.push(ht1[j]);
           }
         }
         for(let j = 0; j < ht2.length; j++){
-          if(ht2[j].dietary.includes("vegitarian")){
+          if(ht2[j].dietary.indexOf("vegetarian") !== -1){
             holder2.push(ht2[j]);
           }
         }
         for(let j = 0; j < ht3.length; j++){
-          if(ht3[j].dietary.includes("vegitarian")){
+          if(ht3[j].dietary.indexOf("vegetarian") !== -1){
             holder3.push(ht3[j]);
           }
         }
@@ -187,7 +184,6 @@ function App() {
               carbohydrates: data.foods[0].foodNutrients[2].value,
               calories: data.foods[0].foodNutrients[3].value
             }
-            console.log("a1: " + randomIndex1);
             return new_br;
           })
 
@@ -201,7 +197,6 @@ function App() {
               carbohydrates: data.foods[0].foodNutrients[2].value,
               calories: data.foods[0].foodNutrients[3].value
             }
-            console.log("a2: " + randomIndex2);
             return new_lunc;
           })
 
@@ -215,7 +210,406 @@ function App() {
               carbohydrates: data.foods[0].foodNutrients[2].value,
               calories: data.foods[0].foodNutrients[3].value
             }
-            console.log("a3: " + randomIndex3);
+            return new_din;
+          })
+          
+
+          br.push(br_promise);
+          lunc.push(lunc_promise);
+          din.push(din_promise);
+          
+          holder1.splice(randomIndex1, 1);
+          holder2.splice(randomIndex2, 1);
+          holder3.splice(randomIndex3, 1);
+        }
+        Promise.all(br).then(function(array){
+          console.log(array);
+        });
+        Promise.all(lunc).then(function(array){
+          console.log(array);
+        });
+        Promise.all(din).then(function(array){
+          console.log(array);
+        });      
+      } else if(dietaryRestrictions == "soy"){
+        let ht1 = Yahentamitsi.breakfast.slice();
+        let ht2 = Yahentamitsi.lunch.slice();
+        let ht3 = Yahentamitsi.dinner.slice();
+        let holder1 = [];
+        let holder2 = [];
+        let holder3 = [];
+        for(let j = 0; j < ht1.length; j++){
+          if(ht1[j].dietary.indexOf("soy") !== -1){
+            holder1.push(ht1[j]);
+          }
+        }
+        for(let j = 0; j < ht2.length; j++){
+          if(ht2[j].dietary.indexOf("soy") !== -1){
+            holder2.push(ht2[j]);
+          }
+        }
+        for(let j = 0; j < ht3.length; j++){
+          if(ht3[j].dietary.indexOf("soy") !== -1){
+            holder3.push(ht3[j]);
+          }
+        }
+        for(let i = 0; i < 3; i++){
+          const randomIndex1 = Math.floor(Math.random() * (holder1.length - 1));
+          const randomIndex2 = Math.floor(Math.random() * (holder2.length - 1));
+          const randomIndex3 = Math.floor(Math.random() * (holder3.length - 1));
+          
+          let q1 = holder1[randomIndex1].query;
+          let q2 = holder2[randomIndex2].query;
+          let q3 = holder3[randomIndex3].query;
+          let d1 = holder1[randomIndex1].dietary;
+          let d2 = holder2[randomIndex2].dietary;
+          let d3 = holder3[randomIndex3].dietary;
+
+          const api_url1 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q1)}&dataType=${encodeURIComponent(holder1[randomIndex1].dataType)}&pagesize=${encodeURIComponent(holder1[randomIndex1].pagesize)}`;
+
+          const api_url2 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q2)}&dataType=${encodeURIComponent(holder2[randomIndex2].dataType)}&pagesize=${encodeURIComponent(holder2[randomIndex2].pagesize)}`;
+
+          const api_url3 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q3)}&dataType=${encodeURIComponent(holder3[randomIndex3].dataType)}&pagesize=${encodeURIComponent(holder3[randomIndex3].pagesize)}`;
+
+          let br_promise = getData(api_url1).then(function(data){
+            const new_br = {
+              name: q1,
+              time: 'breakfast',
+              dietary: d1,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_br;
+          })
+
+          let lunc_promise = getData(api_url2).then(function(data){
+            const new_lunc = {
+              name: q2,
+              time: 'lunch',
+              dietary: d2,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_lunc;
+          })
+
+          let din_promise = getData(api_url3).then(function(data){
+            const new_din = {
+              name: q3,
+              time: 'dinner',
+              dietary: d3,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_din;
+          })
+          
+
+          br.push(br_promise);
+          lunc.push(lunc_promise);
+          din.push(din_promise);
+          
+          holder1.splice(randomIndex1, 1);
+          holder2.splice(randomIndex2, 1);
+          holder3.splice(randomIndex3, 1);
+        }
+        Promise.all(br).then(function(array){
+          console.log(array);
+        });
+        Promise.all(lunc).then(function(array){
+          console.log(array);
+        });
+        Promise.all(din).then(function(array){
+          console.log(array);
+        });      
+      } else if(dietaryRestrictions == "eggs"){
+        let ht1 = Yahentamitsi.breakfast.slice();
+        let ht2 = Yahentamitsi.lunch.slice();
+        let ht3 = Yahentamitsi.dinner.slice();
+        let holder1 = [];
+        let holder2 = [];
+        let holder3 = [];
+        for(let j = 0; j < ht1.length; j++){
+          if(ht1[j].dietary.indexOf("eggs") !== -1){
+            holder1.push(ht1[j]);
+          }
+        }
+        for(let j = 0; j < ht2.length; j++){
+          if(ht2[j].dietary.indexOf("eggs") !== -1){
+            holder2.push(ht2[j]);
+          }
+        }
+        for(let j = 0; j < ht3.length; j++){
+          if(ht3[j].dietary.indexOf("eggs") !== -1){
+            holder3.push(ht3[j]);
+          }
+        }
+        for(let i = 0; i < 3; i++){
+          const randomIndex1 = Math.floor(Math.random() * (holder1.length - 1));
+          const randomIndex2 = Math.floor(Math.random() * (holder2.length - 1));
+          const randomIndex3 = Math.floor(Math.random() * (holder3.length - 1));
+          
+          let q1 = holder1[randomIndex1].query;
+          let q2 = holder2[randomIndex2].query;
+          let q3 = holder3[randomIndex3].query;
+          let d1 = holder1[randomIndex1].dietary;
+          let d2 = holder2[randomIndex2].dietary;
+          let d3 = holder3[randomIndex3].dietary;
+
+          const api_url1 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q1)}&dataType=${encodeURIComponent(holder1[randomIndex1].dataType)}&pagesize=${encodeURIComponent(holder1[randomIndex1].pagesize)}`;
+
+          const api_url2 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q2)}&dataType=${encodeURIComponent(holder2[randomIndex2].dataType)}&pagesize=${encodeURIComponent(holder2[randomIndex2].pagesize)}`;
+
+          const api_url3 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q3)}&dataType=${encodeURIComponent(holder3[randomIndex3].dataType)}&pagesize=${encodeURIComponent(holder3[randomIndex3].pagesize)}`;
+
+          let br_promise = getData(api_url1).then(function(data){
+            const new_br = {
+              name: q1,
+              time: 'breakfast',
+              dietary: d1,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_br;
+          })
+
+          let lunc_promise = getData(api_url2).then(function(data){
+            const new_lunc = {
+              name: q2,
+              time: 'lunch',
+              dietary: d2,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_lunc;
+          })
+
+          let din_promise = getData(api_url3).then(function(data){
+            const new_din = {
+              name: q3,
+              time: 'dinner',
+              dietary: d3,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_din;
+          })
+          
+
+          br.push(br_promise);
+          lunc.push(lunc_promise);
+          din.push(din_promise);
+          
+          holder1.splice(randomIndex1, 1);
+          holder2.splice(randomIndex2, 1);
+          holder3.splice(randomIndex3, 1);
+        }
+        Promise.all(br).then(function(array){
+          console.log(array);
+        });
+        Promise.all(lunc).then(function(array){
+          console.log(array);
+        });
+        Promise.all(din).then(function(array){
+          console.log(array);
+        });      
+      } else if(dietaryRestrictions == "dairy"){
+        let ht1 = Yahentamitsi.breakfast.slice();
+        let ht2 = Yahentamitsi.lunch.slice();
+        let ht3 = Yahentamitsi.dinner.slice();
+        let holder1 = [];
+        let holder2 = [];
+        let holder3 = [];
+        for(let j = 0; j < ht1.length; j++){
+          if(ht1[j].dietary.indexOf("dairy") !== -1){
+            holder1.push(ht1[j]);
+          }
+        }
+        for(let j = 0; j < ht2.length; j++){
+          if(ht2[j].dietary.indexOf("dairy") !== -1){
+            holder2.push(ht2[j]);
+          }
+        }
+        for(let j = 0; j < ht3.length; j++){
+          if(ht3[j].dietary.indexOf("dairy") !== -1){
+            holder3.push(ht3[j]);
+          }
+        }
+        for(let i = 0; i < 3; i++){
+          const randomIndex1 = Math.floor(Math.random() * (holder1.length - 1));
+          const randomIndex2 = Math.floor(Math.random() * (holder2.length - 1));
+          const randomIndex3 = Math.floor(Math.random() * (holder3.length - 1));
+          
+          let q1 = holder1[randomIndex1].query;
+          let q2 = holder2[randomIndex2].query;
+          let q3 = holder3[randomIndex3].query;
+          let d1 = holder1[randomIndex1].dietary;
+          let d2 = holder2[randomIndex2].dietary;
+          let d3 = holder3[randomIndex3].dietary;
+
+          const api_url1 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q1)}&dataType=${encodeURIComponent(holder1[randomIndex1].dataType)}&pagesize=${encodeURIComponent(holder1[randomIndex1].pagesize)}`;
+
+          const api_url2 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q2)}&dataType=${encodeURIComponent(holder2[randomIndex2].dataType)}&pagesize=${encodeURIComponent(holder2[randomIndex2].pagesize)}`;
+
+          const api_url3 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q3)}&dataType=${encodeURIComponent(holder3[randomIndex3].dataType)}&pagesize=${encodeURIComponent(holder3[randomIndex3].pagesize)}`;
+
+          let br_promise = getData(api_url1).then(function(data){
+            const new_br = {
+              name: q1,
+              time: 'breakfast',
+              dietary: d1,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_br;
+          })
+
+          let lunc_promise = getData(api_url2).then(function(data){
+            const new_lunc = {
+              name: q2,
+              time: 'lunch',
+              dietary: d2,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_lunc;
+          })
+
+          let din_promise = getData(api_url3).then(function(data){
+            const new_din = {
+              name: q3,
+              time: 'dinner',
+              dietary: d3,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_din;
+          })
+          
+
+          br.push(br_promise);
+          lunc.push(lunc_promise);
+          din.push(din_promise);
+          
+          holder1.splice(randomIndex1, 1);
+          holder2.splice(randomIndex2, 1);
+          holder3.splice(randomIndex3, 1);
+        }
+        Promise.all(br).then(function(array){
+          console.log(array);
+        });
+        Promise.all(lunc).then(function(array){
+          console.log(array);
+        });
+        Promise.all(din).then(function(array){
+          console.log(array);
+        });      
+      } else if(dietaryRestrictions == "gluten"){
+        let ht1 = Yahentamitsi.breakfast.slice();
+        let ht2 = Yahentamitsi.lunch.slice();
+        let ht3 = Yahentamitsi.dinner.slice();
+        let holder1 = [];
+        let holder2 = [];
+        let holder3 = [];
+        for(let j = 0; j < ht1.length; j++){
+          if(ht1[j].dietary.indexOf("gluten") !== -1){
+            holder1.push(ht1[j]);
+          }
+        }
+        for(let j = 0; j < ht2.length; j++){
+          if(ht2[j].dietary.indexOf("gluten") !== -1){
+            holder2.push(ht2[j]);
+          }
+        }
+        for(let j = 0; j < ht3.length; j++){
+          if(ht3[j].dietary.indexOf("dairy") !== -1){
+            holder3.push(ht3[j]);
+          }
+        }
+        for(let i = 0; i < 3; i++){
+          const randomIndex1 = Math.floor(Math.random() * (holder1.length - 1));
+          const randomIndex2 = Math.floor(Math.random() * (holder2.length - 1));
+          const randomIndex3 = Math.floor(Math.random() * (holder3.length - 1));
+          
+          let q1 = holder1[randomIndex1].query;
+          let q2 = holder2[randomIndex2].query;
+          let q3 = holder3[randomIndex3].query;
+          let d1 = holder1[randomIndex1].dietary;
+          let d2 = holder2[randomIndex2].dietary;
+          let d3 = holder3[randomIndex3].dietary;
+
+          const api_url1 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q1)}&dataType=${encodeURIComponent(holder1[randomIndex1].dataType)}&pagesize=${encodeURIComponent(holder1[randomIndex1].pagesize)}`;
+
+          const api_url2 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q2)}&dataType=${encodeURIComponent(holder2[randomIndex2].dataType)}&pagesize=${encodeURIComponent(holder2[randomIndex2].pagesize)}`;
+
+          const api_url3 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q3)}&dataType=${encodeURIComponent(holder3[randomIndex3].dataType)}&pagesize=${encodeURIComponent(holder3[randomIndex3].pagesize)}`;
+
+          let br_promise = getData(api_url1).then(function(data){
+            const new_br = {
+              name: q1,
+              time: 'breakfast',
+              dietary: d1,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_br;
+          })
+
+          let lunc_promise = getData(api_url2).then(function(data){
+            const new_lunc = {
+              name: q2,
+              time: 'lunch',
+              dietary: d2,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_lunc;
+          })
+
+          let din_promise = getData(api_url3).then(function(data){
+            const new_din = {
+              name: q3,
+              time: 'dinner',
+              dietary: d3,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
             return new_din;
           })
           
@@ -274,7 +668,6 @@ function App() {
               carbohydrates: data.foods[0].foodNutrients[2].value,
               calories: data.foods[0].foodNutrients[3].value
             }
-            console.log("a1: " + randomIndex1);
             return new_br;
           })
 
@@ -288,7 +681,6 @@ function App() {
               carbohydrates: data.foods[0].foodNutrients[2].value,
               calories: data.foods[0].foodNutrients[3].value
             }
-            console.log("a2: " + randomIndex2);
             return new_lunc;
           })
 
@@ -302,7 +694,6 @@ function App() {
               carbohydrates: data.foods[0].foodNutrients[2].value,
               calories: data.foods[0].foodNutrients[3].value
             }
-            console.log("a3: " + randomIndex3);
             return new_din;
           })
           
@@ -324,6 +715,1090 @@ function App() {
         Promise.all(din).then(function(array){
           console.log(array);
         });
+      }else if(dietaryRestrictions == "vegetarian"){
+        let ht1 = South_Diner.breakfast.slice();
+        let ht2 = South_Diner.lunch.slice();
+        let ht3 = South_Diner.dinner.slice();
+        let holder1 = [];
+        let holder2 = [];
+        let holder3 = [];
+        for(let j = 0; j < ht1.length; j++){
+          if(ht1[j].dietary.indexOf("vegetarian") !== -1){
+            holder1.push(ht1[j]);
+          }
+        }
+        for(let j = 0; j < ht2.length; j++){
+          if(ht2[j].dietary.indexOf("vegetarian") !== -1){
+            holder2.push(ht2[j]);
+          }
+        }
+        for(let j = 0; j < ht3.length; j++){
+          if(ht3[j].dietary.indexOf("vegetarian") !== -1){
+            holder3.push(ht3[j]);
+          }
+        }
+        for(let i = 0; i < 3; i++){
+          const randomIndex1 = Math.floor(Math.random() * (holder1.length - 1));
+          const randomIndex2 = Math.floor(Math.random() * (holder2.length - 1));
+          const randomIndex3 = Math.floor(Math.random() * (holder3.length - 1));
+          
+          let q1 = holder1[randomIndex1].query;
+          let q2 = holder2[randomIndex2].query;
+          let q3 = holder3[randomIndex3].query;
+          let d1 = holder1[randomIndex1].dietary;
+          let d2 = holder2[randomIndex2].dietary;
+          let d3 = holder3[randomIndex3].dietary;
+
+          const api_url1 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q1)}&dataType=${encodeURIComponent(holder1[randomIndex1].dataType)}&pagesize=${encodeURIComponent(holder1[randomIndex1].pagesize)}`;
+
+          const api_url2 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q2)}&dataType=${encodeURIComponent(holder2[randomIndex2].dataType)}&pagesize=${encodeURIComponent(holder2[randomIndex2].pagesize)}`;
+
+          const api_url3 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q3)}&dataType=${encodeURIComponent(holder3[randomIndex3].dataType)}&pagesize=${encodeURIComponent(holder3[randomIndex3].pagesize)}`;
+
+          let br_promise = getData(api_url1).then(function(data){
+            const new_br = {
+              name: q1,
+              time: 'breakfast',
+              dietary: d1,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_br;
+          })
+
+          let lunc_promise = getData(api_url2).then(function(data){
+            const new_lunc = {
+              name: q2,
+              time: 'lunch',
+              dietary: d2,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_lunc;
+          })
+
+          let din_promise = getData(api_url3).then(function(data){
+            const new_din = {
+              name: q3,
+              time: 'dinner',
+              dietary: d3,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_din;
+          })
+          
+
+          br.push(br_promise);
+          lunc.push(lunc_promise);
+          din.push(din_promise);
+          
+          holder1.splice(randomIndex1, 1);
+          holder2.splice(randomIndex2, 1);
+          holder3.splice(randomIndex3, 1);
+        }
+        Promise.all(br).then(function(array){
+          console.log(array);
+        });
+        Promise.all(lunc).then(function(array){
+          console.log(array);
+        });
+        Promise.all(din).then(function(array){
+          console.log(array);
+        });      
+      } else if(dietaryRestrictions == "soy"){
+        let ht1 = South_Diner.breakfast.slice();
+        let ht2 = South_Diner.lunch.slice();
+        let ht3 = South_Diner.dinner.slice();
+        let holder1 = [];
+        let holder2 = [];
+        let holder3 = [];
+        for(let j = 0; j < ht1.length; j++){
+          if(ht1[j].dietary.indexOf("soy") !== -1){
+            holder1.push(ht1[j]);
+          }
+        }
+        for(let j = 0; j < ht2.length; j++){
+          if(ht2[j].dietary.indexOf("soy") !== -1){
+            holder2.push(ht2[j]);
+          }
+        }
+        for(let j = 0; j < ht3.length; j++){
+          if(ht3[j].dietary.indexOf("soy") !== -1){
+            holder3.push(ht3[j]);
+          }
+        }
+        for(let i = 0; i < 3; i++){
+          const randomIndex1 = Math.floor(Math.random() * (holder1.length - 1));
+          const randomIndex2 = Math.floor(Math.random() * (holder2.length - 1));
+          const randomIndex3 = Math.floor(Math.random() * (holder3.length - 1));
+          
+          let q1 = holder1[randomIndex1].query;
+          let q2 = holder2[randomIndex2].query;
+          let q3 = holder3[randomIndex3].query;
+          let d1 = holder1[randomIndex1].dietary;
+          let d2 = holder2[randomIndex2].dietary;
+          let d3 = holder3[randomIndex3].dietary;
+
+          const api_url1 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q1)}&dataType=${encodeURIComponent(holder1[randomIndex1].dataType)}&pagesize=${encodeURIComponent(holder1[randomIndex1].pagesize)}`;
+
+          const api_url2 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q2)}&dataType=${encodeURIComponent(holder2[randomIndex2].dataType)}&pagesize=${encodeURIComponent(holder2[randomIndex2].pagesize)}`;
+
+          const api_url3 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q3)}&dataType=${encodeURIComponent(holder3[randomIndex3].dataType)}&pagesize=${encodeURIComponent(holder3[randomIndex3].pagesize)}`;
+
+          let br_promise = getData(api_url1).then(function(data){
+            const new_br = {
+              name: q1,
+              time: 'breakfast',
+              dietary: d1,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_br;
+          })
+
+          let lunc_promise = getData(api_url2).then(function(data){
+            const new_lunc = {
+              name: q2,
+              time: 'lunch',
+              dietary: d2,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_lunc;
+          })
+
+          let din_promise = getData(api_url3).then(function(data){
+            const new_din = {
+              name: q3,
+              time: 'dinner',
+              dietary: d3,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_din;
+          })
+          
+
+          br.push(br_promise);
+          lunc.push(lunc_promise);
+          din.push(din_promise);
+          
+          holder1.splice(randomIndex1, 1);
+          holder2.splice(randomIndex2, 1);
+          holder3.splice(randomIndex3, 1);
+        }
+        Promise.all(br).then(function(array){
+          console.log(array);
+        });
+        Promise.all(lunc).then(function(array){
+          console.log(array);
+        });
+        Promise.all(din).then(function(array){
+          console.log(array);
+        });      
+      } else if(dietaryRestrictions == "eggs"){
+        let ht1 = South_Diner.breakfast.slice();
+        let ht2 = South_Diner.lunch.slice();
+        let ht3 = South_Diner.dinner.slice();
+        let holder1 = [];
+        let holder2 = [];
+        let holder3 = [];
+        for(let j = 0; j < ht1.length; j++){
+          if(ht1[j].dietary.indexOf("eggs") !== -1){
+            holder1.push(ht1[j]);
+          }
+        }
+        for(let j = 0; j < ht2.length; j++){
+          if(ht2[j].dietary.indexOf("eggs") !== -1){
+            holder2.push(ht2[j]);
+          }
+        }
+        for(let j = 0; j < ht3.length; j++){
+          if(ht3[j].dietary.indexOf("eggs") !== -1){
+            holder3.push(ht3[j]);
+          }
+        }
+        for(let i = 0; i < 3; i++){
+          const randomIndex1 = Math.floor(Math.random() * (holder1.length - 1));
+          const randomIndex2 = Math.floor(Math.random() * (holder2.length - 1));
+          const randomIndex3 = Math.floor(Math.random() * (holder3.length - 1));
+          
+          let q1 = holder1[randomIndex1].query;
+          let q2 = holder2[randomIndex2].query;
+          let q3 = holder3[randomIndex3].query;
+          let d1 = holder1[randomIndex1].dietary;
+          let d2 = holder2[randomIndex2].dietary;
+          let d3 = holder3[randomIndex3].dietary;
+
+          const api_url1 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q1)}&dataType=${encodeURIComponent(holder1[randomIndex1].dataType)}&pagesize=${encodeURIComponent(holder1[randomIndex1].pagesize)}`;
+
+          const api_url2 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q2)}&dataType=${encodeURIComponent(holder2[randomIndex2].dataType)}&pagesize=${encodeURIComponent(holder2[randomIndex2].pagesize)}`;
+
+          const api_url3 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q3)}&dataType=${encodeURIComponent(holder3[randomIndex3].dataType)}&pagesize=${encodeURIComponent(holder3[randomIndex3].pagesize)}`;
+
+          let br_promise = getData(api_url1).then(function(data){
+            const new_br = {
+              name: q1,
+              time: 'breakfast',
+              dietary: d1,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_br;
+          })
+
+          let lunc_promise = getData(api_url2).then(function(data){
+            const new_lunc = {
+              name: q2,
+              time: 'lunch',
+              dietary: d2,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_lunc;
+          })
+
+          let din_promise = getData(api_url3).then(function(data){
+            const new_din = {
+              name: q3,
+              time: 'dinner',
+              dietary: d3,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_din;
+          })
+          
+
+          br.push(br_promise);
+          lunc.push(lunc_promise);
+          din.push(din_promise);
+          
+          holder1.splice(randomIndex1, 1);
+          holder2.splice(randomIndex2, 1);
+          holder3.splice(randomIndex3, 1);
+        }
+        Promise.all(br).then(function(array){
+          console.log(array);
+        });
+        Promise.all(lunc).then(function(array){
+          console.log(array);
+        });
+        Promise.all(din).then(function(array){
+          console.log(array);
+        });      
+      } else if(dietaryRestrictions == "dairy"){
+        let ht1 = South_Diner.breakfast.slice();
+        let ht2 = South_Diner.lunch.slice();
+        let ht3 = South_Diner.dinner.slice();
+        let holder1 = [];
+        let holder2 = [];
+        let holder3 = [];
+        for(let j = 0; j < ht1.length; j++){
+          if(ht1[j].dietary.indexOf("dairy") !== -1){
+            holder1.push(ht1[j]);
+          }
+        }
+        for(let j = 0; j < ht2.length; j++){
+          if(ht2[j].dietary.indexOf("dairy") !== -1){
+            holder2.push(ht2[j]);
+          }
+        }
+        for(let j = 0; j < ht3.length; j++){
+          if(ht3[j].dietary.indexOf("dairy") !== -1){
+            holder3.push(ht3[j]);
+          }
+        }
+        for(let i = 0; i < 3; i++){
+          const randomIndex1 = Math.floor(Math.random() * (holder1.length - 1));
+          const randomIndex2 = Math.floor(Math.random() * (holder2.length - 1));
+          const randomIndex3 = Math.floor(Math.random() * (holder3.length - 1));
+          
+          let q1 = holder1[randomIndex1].query;
+          let q2 = holder2[randomIndex2].query;
+          let q3 = holder3[randomIndex3].query;
+          let d1 = holder1[randomIndex1].dietary;
+          let d2 = holder2[randomIndex2].dietary;
+          let d3 = holder3[randomIndex3].dietary;
+
+          const api_url1 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q1)}&dataType=${encodeURIComponent(holder1[randomIndex1].dataType)}&pagesize=${encodeURIComponent(holder1[randomIndex1].pagesize)}`;
+
+          const api_url2 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q2)}&dataType=${encodeURIComponent(holder2[randomIndex2].dataType)}&pagesize=${encodeURIComponent(holder2[randomIndex2].pagesize)}`;
+
+          const api_url3 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q3)}&dataType=${encodeURIComponent(holder3[randomIndex3].dataType)}&pagesize=${encodeURIComponent(holder3[randomIndex3].pagesize)}`;
+
+          let br_promise = getData(api_url1).then(function(data){
+            const new_br = {
+              name: q1,
+              time: 'breakfast',
+              dietary: d1,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_br;
+          })
+
+          let lunc_promise = getData(api_url2).then(function(data){
+            const new_lunc = {
+              name: q2,
+              time: 'lunch',
+              dietary: d2,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_lunc;
+          })
+
+          let din_promise = getData(api_url3).then(function(data){
+            const new_din = {
+              name: q3,
+              time: 'dinner',
+              dietary: d3,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_din;
+          })
+          
+
+          br.push(br_promise);
+          lunc.push(lunc_promise);
+          din.push(din_promise);
+          
+          holder1.splice(randomIndex1, 1);
+          holder2.splice(randomIndex2, 1);
+          holder3.splice(randomIndex3, 1);
+        }
+        Promise.all(br).then(function(array){
+          console.log(array);
+        });
+        Promise.all(lunc).then(function(array){
+          console.log(array);
+        });
+        Promise.all(din).then(function(array){
+          console.log(array);
+        });      
+      } else if(dietaryRestrictions == "gluten"){
+        let ht1 = South_Diner.breakfast.slice();
+        let ht2 = South_Diner.lunch.slice();
+        let ht3 = South_Diner.dinner.slice();
+        let holder1 = [];
+        let holder2 = [];
+        let holder3 = [];
+        for(let j = 0; j < ht1.length; j++){
+          if(ht1[j].dietary.indexOf("gluten") !== -1){
+            holder1.push(ht1[j]);
+          }
+        }
+        for(let j = 0; j < ht2.length; j++){
+          if(ht2[j].dietary.indexOf("gluten") !== -1){
+            holder2.push(ht2[j]);
+          }
+        }
+        for(let j = 0; j < ht3.length; j++){
+          if(ht3[j].dietary.indexOf("dairy") !== -1){
+            holder3.push(ht3[j]);
+          }
+        }
+        for(let i = 0; i < 3; i++){
+          const randomIndex1 = Math.floor(Math.random() * (holder1.length - 1));
+          const randomIndex2 = Math.floor(Math.random() * (holder2.length - 1));
+          const randomIndex3 = Math.floor(Math.random() * (holder3.length - 1));
+          
+          let q1 = holder1[randomIndex1].query;
+          let q2 = holder2[randomIndex2].query;
+          let q3 = holder3[randomIndex3].query;
+          let d1 = holder1[randomIndex1].dietary;
+          let d2 = holder2[randomIndex2].dietary;
+          let d3 = holder3[randomIndex3].dietary;
+
+          const api_url1 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q1)}&dataType=${encodeURIComponent(holder1[randomIndex1].dataType)}&pagesize=${encodeURIComponent(holder1[randomIndex1].pagesize)}`;
+
+          const api_url2 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q2)}&dataType=${encodeURIComponent(holder2[randomIndex2].dataType)}&pagesize=${encodeURIComponent(holder2[randomIndex2].pagesize)}`;
+
+          const api_url3 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q3)}&dataType=${encodeURIComponent(holder3[randomIndex3].dataType)}&pagesize=${encodeURIComponent(holder3[randomIndex3].pagesize)}`;
+
+          let br_promise = getData(api_url1).then(function(data){
+            const new_br = {
+              name: q1,
+              time: 'breakfast',
+              dietary: d1,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_br;
+          })
+
+          let lunc_promise = getData(api_url2).then(function(data){
+            const new_lunc = {
+              name: q2,
+              time: 'lunch',
+              dietary: d2,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_lunc;
+          })
+
+          let din_promise = getData(api_url3).then(function(data){
+            const new_din = {
+              name: q3,
+              time: 'dinner',
+              dietary: d3,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_din;
+          })
+          
+
+          br.push(br_promise);
+          lunc.push(lunc_promise);
+          din.push(din_promise);
+          
+          holder1.splice(randomIndex1, 1);
+          holder2.splice(randomIndex2, 1);
+          holder3.splice(randomIndex3, 1);
+        }
+        Promise.all(br).then(function(array){
+          console.log(array);
+        });
+        Promise.all(lunc).then(function(array){
+          console.log(array);
+        });
+        Promise.all(din).then(function(array){
+          console.log(array);
+        });      
+      }
+    } else if (location == "North Diner"){
+      let holder1 = North_Diner.breakfast.slice();
+      let holder2 = North_Diner.lunch.slice();
+      let holder3 = North_Diner.dinner.slice();
+      if(dietaryRestrictions == "none"){
+        for(let i = 0; i < 3; i++){
+          const randomIndex1 = Math.floor(Math.random() * (holder1.length - 1));
+          const randomIndex2 = Math.floor(Math.random() * (holder2.length - 1));
+          const randomIndex3 = Math.floor(Math.random() * (holder3.length - 1));
+          
+          let q1 = holder1[randomIndex1].query;
+          let q2 = holder2[randomIndex2].query;
+          let q3 = holder3[randomIndex3].query;
+          let d1 = holder1[randomIndex1].dietary;
+          let d2 = holder2[randomIndex2].dietary;
+          let d3 = holder3[randomIndex3].dietary;
+
+          const api_url1 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q1)}&dataType=${encodeURIComponent(holder1[randomIndex1].dataType)}&pagesize=${encodeURIComponent(holder1[randomIndex1].pagesize)}`;
+
+          const api_url2 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q2)}&dataType=${encodeURIComponent(holder2[randomIndex2].dataType)}&pagesize=${encodeURIComponent(holder2[randomIndex2].pagesize)}`;
+
+          const api_url3 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q3)}&dataType=${encodeURIComponent(holder3[randomIndex3].dataType)}&pagesize=${encodeURIComponent(holder3[randomIndex3].pagesize)}`;
+
+          let br_promise = getData(api_url1).then(function(data){
+            const new_br = {
+              name: q1,
+              time: 'breakfast',
+              dietary: d1,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_br;
+          })
+
+          let lunc_promise = getData(api_url2).then(function(data){
+            const new_lunc = {
+              name: q2,
+              time: 'lunch',
+              dietary: d2,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_lunc;
+          })
+
+          let din_promise = getData(api_url3).then(function(data){
+            const new_din = {
+              name: q3,
+              time: 'dinner',
+              dietary: d3,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_din;
+          })
+          
+
+          br.push(br_promise);
+          lunc.push(lunc_promise);
+          din.push(din_promise);
+          
+          holder1.splice(randomIndex1, 1);
+          holder2.splice(randomIndex2, 1);
+          holder3.splice(randomIndex3, 1);
+        }
+        Promise.all(br).then(function(array){
+          console.log(array);
+        });
+        Promise.all(lunc).then(function(array){
+          console.log(array);
+        });
+        Promise.all(din).then(function(array){
+          console.log(array);
+        });
+      }else if(dietaryRestrictions == "vegetarian"){
+        let ht1 = North_Diner.breakfast.slice();
+        let ht2 = North_Diner.lunch.slice();
+        let ht3 = North_Diner.dinner.slice();
+        let holder1 = [];
+        let holder2 = [];
+        let holder3 = [];
+        for(let j = 0; j < ht1.length; j++){
+          if(ht1[j].dietary.indexOf("vegetarian") !== -1){
+            holder1.push(ht1[j]);
+          }
+        }
+        for(let j = 0; j < ht2.length; j++){
+          if(ht2[j].dietary.indexOf("vegetarian") !== -1){
+            holder2.push(ht2[j]);
+          }
+        }
+        for(let j = 0; j < ht3.length; j++){
+          if(ht3[j].dietary.indexOf("vegetarian") !== -1){
+            holder3.push(ht3[j]);
+          }
+        }
+        for(let i = 0; i < 3; i++){
+          const randomIndex1 = Math.floor(Math.random() * (holder1.length - 1));
+          const randomIndex2 = Math.floor(Math.random() * (holder2.length - 1));
+          const randomIndex3 = Math.floor(Math.random() * (holder3.length - 1));
+          
+          let q1 = holder1[randomIndex1].query;
+          let q2 = holder2[randomIndex2].query;
+          let q3 = holder3[randomIndex3].query;
+          let d1 = holder1[randomIndex1].dietary;
+          let d2 = holder2[randomIndex2].dietary;
+          let d3 = holder3[randomIndex3].dietary;
+
+          const api_url1 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q1)}&dataType=${encodeURIComponent(holder1[randomIndex1].dataType)}&pagesize=${encodeURIComponent(holder1[randomIndex1].pagesize)}`;
+
+          const api_url2 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q2)}&dataType=${encodeURIComponent(holder2[randomIndex2].dataType)}&pagesize=${encodeURIComponent(holder2[randomIndex2].pagesize)}`;
+
+          const api_url3 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q3)}&dataType=${encodeURIComponent(holder3[randomIndex3].dataType)}&pagesize=${encodeURIComponent(holder3[randomIndex3].pagesize)}`;
+
+          let br_promise = getData(api_url1).then(function(data){
+            const new_br = {
+              name: q1,
+              time: 'breakfast',
+              dietary: d1,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_br;
+          })
+
+          let lunc_promise = getData(api_url2).then(function(data){
+            const new_lunc = {
+              name: q2,
+              time: 'lunch',
+              dietary: d2,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_lunc;
+          })
+
+          let din_promise = getData(api_url3).then(function(data){
+            const new_din = {
+              name: q3,
+              time: 'dinner',
+              dietary: d3,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_din;
+          })
+          
+
+          br.push(br_promise);
+          lunc.push(lunc_promise);
+          din.push(din_promise);
+          
+          holder1.splice(randomIndex1, 1);
+          holder2.splice(randomIndex2, 1);
+          holder3.splice(randomIndex3, 1);
+        }
+        Promise.all(br).then(function(array){
+          console.log(array);
+        });
+        Promise.all(lunc).then(function(array){
+          console.log(array);
+        });
+        Promise.all(din).then(function(array){
+          console.log(array);
+        });      
+      } else if(dietaryRestrictions == "soy"){
+        let ht1 = North_Diner.breakfast.slice();
+        let ht2 = North_Diner.lunch.slice();
+        let ht3 = North_Diner.dinner.slice();
+        let holder1 = [];
+        let holder2 = [];
+        let holder3 = [];
+        for(let j = 0; j < ht1.length; j++){
+          if(ht1[j].dietary.indexOf("soy") !== -1){
+            holder1.push(ht1[j]);
+          }
+        }
+        for(let j = 0; j < ht2.length; j++){
+          if(ht2[j].dietary.indexOf("soy") !== -1){
+            holder2.push(ht2[j]);
+          }
+        }
+        for(let j = 0; j < ht3.length; j++){
+          if(ht3[j].dietary.indexOf("soy") !== -1){
+            holder3.push(ht3[j]);
+          }
+        }
+        for(let i = 0; i < 3; i++){
+          const randomIndex1 = Math.floor(Math.random() * (holder1.length - 1));
+          const randomIndex2 = Math.floor(Math.random() * (holder2.length - 1));
+          const randomIndex3 = Math.floor(Math.random() * (holder3.length - 1));
+          
+          let q1 = holder1[randomIndex1].query;
+          let q2 = holder2[randomIndex2].query;
+          let q3 = holder3[randomIndex3].query;
+          let d1 = holder1[randomIndex1].dietary;
+          let d2 = holder2[randomIndex2].dietary;
+          let d3 = holder3[randomIndex3].dietary;
+
+          const api_url1 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q1)}&dataType=${encodeURIComponent(holder1[randomIndex1].dataType)}&pagesize=${encodeURIComponent(holder1[randomIndex1].pagesize)}`;
+
+          const api_url2 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q2)}&dataType=${encodeURIComponent(holder2[randomIndex2].dataType)}&pagesize=${encodeURIComponent(holder2[randomIndex2].pagesize)}`;
+
+          const api_url3 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q3)}&dataType=${encodeURIComponent(holder3[randomIndex3].dataType)}&pagesize=${encodeURIComponent(holder3[randomIndex3].pagesize)}`;
+
+          let br_promise = getData(api_url1).then(function(data){
+            const new_br = {
+              name: q1,
+              time: 'breakfast',
+              dietary: d1,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_br;
+          })
+
+          let lunc_promise = getData(api_url2).then(function(data){
+            const new_lunc = {
+              name: q2,
+              time: 'lunch',
+              dietary: d2,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_lunc;
+          })
+
+          let din_promise = getData(api_url3).then(function(data){
+            const new_din = {
+              name: q3,
+              time: 'dinner',
+              dietary: d3,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_din;
+          })
+          
+
+          br.push(br_promise);
+          lunc.push(lunc_promise);
+          din.push(din_promise);
+          
+          holder1.splice(randomIndex1, 1);
+          holder2.splice(randomIndex2, 1);
+          holder3.splice(randomIndex3, 1);
+        }
+        Promise.all(br).then(function(array){
+          console.log(array);
+        });
+        Promise.all(lunc).then(function(array){
+          console.log(array);
+        });
+        Promise.all(din).then(function(array){
+          console.log(array);
+        });      
+      } else if(dietaryRestrictions == "eggs"){
+        let ht1 = North_Diner.breakfast.slice();
+        let ht2 = North_Diner.lunch.slice();
+        let ht3 = North_Diner.dinner.slice();
+        let holder1 = [];
+        let holder2 = [];
+        let holder3 = [];
+        for(let j = 0; j < ht1.length; j++){
+          if(ht1[j].dietary.indexOf("eggs") !== -1){
+            holder1.push(ht1[j]);
+          }
+        }
+        for(let j = 0; j < ht2.length; j++){
+          if(ht2[j].dietary.indexOf("eggs") !== -1){
+            holder2.push(ht2[j]);
+          }
+        }
+        for(let j = 0; j < ht3.length; j++){
+          if(ht3[j].dietary.indexOf("eggs") !== -1){
+            holder3.push(ht3[j]);
+          }
+        }
+        for(let i = 0; i < 3; i++){
+          const randomIndex1 = Math.floor(Math.random() * (holder1.length - 1));
+          const randomIndex2 = Math.floor(Math.random() * (holder2.length - 1));
+          const randomIndex3 = Math.floor(Math.random() * (holder3.length - 1));
+          
+          let q1 = holder1[randomIndex1].query;
+          let q2 = holder2[randomIndex2].query;
+          let q3 = holder3[randomIndex3].query;
+          let d1 = holder1[randomIndex1].dietary;
+          let d2 = holder2[randomIndex2].dietary;
+          let d3 = holder3[randomIndex3].dietary;
+
+          const api_url1 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q1)}&dataType=${encodeURIComponent(holder1[randomIndex1].dataType)}&pagesize=${encodeURIComponent(holder1[randomIndex1].pagesize)}`;
+
+          const api_url2 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q2)}&dataType=${encodeURIComponent(holder2[randomIndex2].dataType)}&pagesize=${encodeURIComponent(holder2[randomIndex2].pagesize)}`;
+
+          const api_url3 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q3)}&dataType=${encodeURIComponent(holder3[randomIndex3].dataType)}&pagesize=${encodeURIComponent(holder3[randomIndex3].pagesize)}`;
+
+          let br_promise = getData(api_url1).then(function(data){
+            const new_br = {
+              name: q1,
+              time: 'breakfast',
+              dietary: d1,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_br;
+          })
+
+          let lunc_promise = getData(api_url2).then(function(data){
+            const new_lunc = {
+              name: q2,
+              time: 'lunch',
+              dietary: d2,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_lunc;
+          })
+
+          let din_promise = getData(api_url3).then(function(data){
+            const new_din = {
+              name: q3,
+              time: 'dinner',
+              dietary: d3,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_din;
+          })
+          
+
+          br.push(br_promise);
+          lunc.push(lunc_promise);
+          din.push(din_promise);
+          
+          holder1.splice(randomIndex1, 1);
+          holder2.splice(randomIndex2, 1);
+          holder3.splice(randomIndex3, 1);
+        }
+        Promise.all(br).then(function(array){
+          console.log(array);
+        });
+        Promise.all(lunc).then(function(array){
+          console.log(array);
+        });
+        Promise.all(din).then(function(array){
+          console.log(array);
+        });      
+      } else if(dietaryRestrictions == "dairy"){
+        let ht1 = North_Diner.breakfast.slice();
+        let ht2 = North_Diner.lunch.slice();
+        let ht3 = North_Diner.dinner.slice();
+        let holder1 = [];
+        let holder2 = [];
+        let holder3 = [];
+        for(let j = 0; j < ht1.length; j++){
+          if(ht1[j].dietary.indexOf("dairy") !== -1){
+            holder1.push(ht1[j]);
+          }
+        }
+        for(let j = 0; j < ht2.length; j++){
+          if(ht2[j].dietary.indexOf("dairy") !== -1){
+            holder2.push(ht2[j]);
+          }
+        }
+        for(let j = 0; j < ht3.length; j++){
+          if(ht3[j].dietary.indexOf("dairy") !== -1){
+            holder3.push(ht3[j]);
+          }
+        }
+        for(let i = 0; i < 3; i++){
+          const randomIndex1 = Math.floor(Math.random() * (holder1.length - 1));
+          const randomIndex2 = Math.floor(Math.random() * (holder2.length - 1));
+          const randomIndex3 = Math.floor(Math.random() * (holder3.length - 1));
+          
+          let q1 = holder1[randomIndex1].query;
+          let q2 = holder2[randomIndex2].query;
+          let q3 = holder3[randomIndex3].query;
+          let d1 = holder1[randomIndex1].dietary;
+          let d2 = holder2[randomIndex2].dietary;
+          let d3 = holder3[randomIndex3].dietary;
+
+          const api_url1 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q1)}&dataType=${encodeURIComponent(holder1[randomIndex1].dataType)}&pagesize=${encodeURIComponent(holder1[randomIndex1].pagesize)}`;
+
+          const api_url2 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q2)}&dataType=${encodeURIComponent(holder2[randomIndex2].dataType)}&pagesize=${encodeURIComponent(holder2[randomIndex2].pagesize)}`;
+
+          const api_url3 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q3)}&dataType=${encodeURIComponent(holder3[randomIndex3].dataType)}&pagesize=${encodeURIComponent(holder3[randomIndex3].pagesize)}`;
+
+          let br_promise = getData(api_url1).then(function(data){
+            const new_br = {
+              name: q1,
+              time: 'breakfast',
+              dietary: d1,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_br;
+          })
+
+          let lunc_promise = getData(api_url2).then(function(data){
+            const new_lunc = {
+              name: q2,
+              time: 'lunch',
+              dietary: d2,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_lunc;
+          })
+
+          let din_promise = getData(api_url3).then(function(data){
+            const new_din = {
+              name: q3,
+              time: 'dinner',
+              dietary: d3,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_din;
+          })
+          
+
+          br.push(br_promise);
+          lunc.push(lunc_promise);
+          din.push(din_promise);
+          
+          holder1.splice(randomIndex1, 1);
+          holder2.splice(randomIndex2, 1);
+          holder3.splice(randomIndex3, 1);
+        }
+        Promise.all(br).then(function(array){
+          console.log(array);
+        });
+        Promise.all(lunc).then(function(array){
+          console.log(array);
+        });
+        Promise.all(din).then(function(array){
+          console.log(array);
+        });      
+      } else if(dietaryRestrictions == "gluten"){
+        let ht1 = North_Diner.breakfast.slice();
+        let ht2 = North_Diner.lunch.slice();
+        let ht3 = North_Diner.dinner.slice();
+        let holder1 = [];
+        let holder2 = [];
+        let holder3 = [];
+        for(let j = 0; j < ht1.length; j++){
+          if(ht1[j].dietary.indexOf("gluten") !== -1){
+            holder1.push(ht1[j]);
+          }
+        }
+        for(let j = 0; j < ht2.length; j++){
+          if(ht2[j].dietary.indexOf("gluten") !== -1){
+            holder2.push(ht2[j]);
+          }
+        }
+        for(let j = 0; j < ht3.length; j++){
+          if(ht3[j].dietary.indexOf("dairy") !== -1){
+            holder3.push(ht3[j]);
+          }
+        }
+        for(let i = 0; i < 3; i++){
+          const randomIndex1 = Math.floor(Math.random() * (holder1.length - 1));
+          const randomIndex2 = Math.floor(Math.random() * (holder2.length - 1));
+          const randomIndex3 = Math.floor(Math.random() * (holder3.length - 1));
+          
+          let q1 = holder1[randomIndex1].query;
+          let q2 = holder2[randomIndex2].query;
+          let q3 = holder3[randomIndex3].query;
+          let d1 = holder1[randomIndex1].dietary;
+          let d2 = holder2[randomIndex2].dietary;
+          let d3 = holder3[randomIndex3].dietary;
+
+          const api_url1 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q1)}&dataType=${encodeURIComponent(holder1[randomIndex1].dataType)}&pagesize=${encodeURIComponent(holder1[randomIndex1].pagesize)}`;
+
+          const api_url2 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q2)}&dataType=${encodeURIComponent(holder2[randomIndex2].dataType)}&pagesize=${encodeURIComponent(holder2[randomIndex2].pagesize)}`;
+
+          const api_url3 = 
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(key)}&query=${encodeURIComponent(q3)}&dataType=${encodeURIComponent(holder3[randomIndex3].dataType)}&pagesize=${encodeURIComponent(holder3[randomIndex3].pagesize)}`;
+
+          let br_promise = getData(api_url1).then(function(data){
+            const new_br = {
+              name: q1,
+              time: 'breakfast',
+              dietary: d1,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_br;
+          })
+
+          let lunc_promise = getData(api_url2).then(function(data){
+            const new_lunc = {
+              name: q2,
+              time: 'lunch',
+              dietary: d2,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_lunc;
+          })
+
+          let din_promise = getData(api_url3).then(function(data){
+            const new_din = {
+              name: q3,
+              time: 'dinner',
+              dietary: d3,
+              protein: data.foods[0].foodNutrients[0].value,
+              fat: data.foods[0].foodNutrients[1].value,
+              carbohydrates: data.foods[0].foodNutrients[2].value,
+              calories: data.foods[0].foodNutrients[3].value
+            }
+            return new_din;
+          })
+          
+
+          br.push(br_promise);
+          lunc.push(lunc_promise);
+          din.push(din_promise);
+          
+          holder1.splice(randomIndex1, 1);
+          holder2.splice(randomIndex2, 1);
+          holder3.splice(randomIndex3, 1);
+        }
+        Promise.all(br).then(function(array){
+          console.log(array);
+        });
+        Promise.all(lunc).then(function(array){
+          console.log(array);
+        });
+        Promise.all(din).then(function(array){
+          console.log(array);
+        });      
       }
     }
   }

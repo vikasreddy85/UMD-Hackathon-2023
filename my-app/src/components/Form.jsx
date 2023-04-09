@@ -151,10 +151,10 @@ const Form = (props) => {
                     <select value={dietaryRestrictions}onChange={handleDietaryRestrictions}>
                         <option value="none">None</option>
                         <option value="soy">Soy</option>
-                        <option value="vegitarian">Vegitarian</option>
+                        <option value="vegetarian">Vegetarian</option>
                         <option value="dairy">Dairy</option>
                         <option value="eggs">Eggs</option>
-                        <option value="gluten">Glutten</option>
+                        <option value="gluten">Gluten</option>
                     </select>
                     <br/>
           Active:

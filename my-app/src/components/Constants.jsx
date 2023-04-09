@@ -8,7 +8,7 @@ export const Pancakes_Plain = {
 };
 
 export const Pancakes_Chocolate_Chips = {
-  query: 'Pancakes Chocolate Chips',
+  query: 'Pancakes Chocolate',
   dataType: ["Survey (FNDDS)"],
   pagesize: 1,
   location: "Y",
@@ -35,7 +35,7 @@ export const Sandwich = {
 };
 
 export const Grilled_Hot_Dog = {
-  query: 'Grilled Hot Dog',
+  query: 'Hot Dog',
   dataType: ["Survey (FNDDS)"],
   pagesize: 1,
   location: "Y",
@@ -44,12 +44,12 @@ export const Grilled_Hot_Dog = {
 }
 
 export const Onion_Marmalade_Sandwich = {
-  query: 'Onion Marmalade Sandwich',
+  query: 'Onion Sandwich',
   dataType: ["Survey (FNDDS)"],
   pagesize: 1,
   location: "Y",
   time: "lunch",
-  dietary: ["diary", "eggs", "gluten", "soy"]
+  dietary: ["dairy", "eggs", "gluten", "soy"]
 }
 
 export const Chorizo = {
@@ -58,7 +58,7 @@ export const Chorizo = {
   pagesize: 1,
   location: "Y",
   time: "lunch",
-  dietary: ["diary", "soy"]
+  dietary: ["dairy", "soy"]
 }
 
 export const French_Toast = {
@@ -67,7 +67,7 @@ export const French_Toast = {
   pagesize: 1,
   location: "Y",
   time: "lunch",
-  dietary: ["diary", "eggs", "gluten", "soy", "vegetarian"]
+  dietary: ["dairy", "eggs", "gluten", "soy", "vegetarian"]
 }
 
 export const English_Muffin = {
@@ -76,7 +76,7 @@ export const English_Muffin = {
   pagesize: 1,
   location: "Y",
   time: "lunch",
-  dietary: ["diary", "gluten", "soy", "vegetarian"]
+  dietary: ["dairy", "gluten", "soy", "vegetarian"]
 }
 
 export const Greek_Yogurt = {
@@ -85,7 +85,7 @@ export const Greek_Yogurt = {
   pagesize: 1,
   location: "Y",
   time: "lunch",
-  dietary: ["diary", "vegetarian"]
+  dietary: ["dairy", "vegetarian"]
 }
 
 export const Yogurt = {
@@ -94,7 +94,7 @@ export const Yogurt = {
   pagesize: 1,
   location: "Y",
   time: "lunch",
-  dietary: ["diary", "vegetarian"]
+  dietary: ["dairy", "vegetarian"]
 }
 
 export const Strawberry_Yogurt = {
@@ -103,7 +103,7 @@ export const Strawberry_Yogurt = {
   pagesize: 1,
   location: "Y",
   time: "lunch",
-  dietary: ["diary", "vegetarian"]
+  dietary: ["dairy", "vegetarian"]
 }
 
 
@@ -113,7 +113,7 @@ export const Biscuit = {
   pagesize: 1,
   location: "Y",
   time: "lunch",
-  dietary: ["diary", "gluten", "vegetarian"]
+  dietary: ["dairy", "gluten", "vegetarian"]
 }
 
 export const Mashed_Potatoes ={
@@ -122,7 +122,7 @@ export const Mashed_Potatoes ={
   pagesize: 1,
   location: "Y",
   time: "lunch",
-  dietary: ["diary", "vegetarian"]
+  dietary: ["dairy", "vegetarian"]
 }
 
 
@@ -132,25 +132,25 @@ export const Cornbread ={
   pagesize: 1,
   location: "Y",
   time: "lunch",
-  dietary: ["diary", "eggs", "vegetarian"]
+  dietary: ["dairy", "eggs", "vegetarian"]
 }
 
 export const Croissant ={
-  query: 'Cornbread',
+  query: 'Croissant',
   dataType: ["Survey (FNDDS)"],
   pagesize: 1,
   location: "Y",
   time: "lunch",
-  dietary: ["diary", "gluten", "eggs", "soy", "vegetarian"]
+  dietary: ["dairy", "gluten", "eggs", "soy", "vegetarian"]
 }
 
 export const Buffalo_Chicken_Pizza  = {
-  query: 'Rozogalo',
+  query: 'Buffalo wing',
   dataType: ["Survey (FNDDS)"],
   pagesize: 1,
   location: "Y",
   time: "lunch",
-  dietary: ["diary", "eggs", "gluten", "soy"] 
+  dietary: ["dairy", "eggs", "gluten", "soy"] 
 }
 
 export const Cheese_Pizza  = {
@@ -159,16 +159,16 @@ export const Cheese_Pizza  = {
   pagesize: 1,
   location: "Y",
   time: "lunch",
-  dietary: ["gluten", "diary", "soy", "vegetarian", "eggs"] 
+  dietary: ["gluten", "dairy", "soy", "vegetarian", "eggs"] 
 }
 
 export const Margherita_Pizza  = {
-  query: 'Margherita Pizza',
+  query: 'Cheese Pizza',
   dataType: ["Survey (FNDDS)"],
   pagesize: 1,
   location: "Y",
   time: "lunch",
-  dietary: ["gluten", "diary", "soy", "eggs"] 
+  dietary: ["gluten", "dairy", "soy", "eggs"] 
 }
 export const Pepperoni_Pizza  = {
   query: 'Pepperoni Pizza',
@@ -176,7 +176,7 @@ export const Pepperoni_Pizza  = {
   pagesize: 1,
   location: "Y",
   time: "lunch",
-  dietary: ["gluten", "diary", "soy", "eggs"] 
+  dietary: ["gluten", "dairy", "soy", "eggs"] 
 }
 
 export const White_Chicken = {
@@ -185,7 +185,7 @@ export const White_Chicken = {
   pagesize: 1,
   location: "Y",
   time: "lunch",
-  dietary: ["diary"] 
+  dietary: ["dairy"] 
 }
 
 export const Pesto_Pasta = {
@@ -194,20 +194,20 @@ export const Pesto_Pasta = {
   pagesize: 1,
   location: "Y",
   time: "lunch",
-  dietary: ["diary", "gluten", "vegetarian"] 
+  dietary: ["dairy", "gluten", "vegetarian"] 
 }
 
 export const Philly_Cheese_Steak_Pizza = {
-  query: "Philly Cheese Steak Pizza",
+  query: "Pizza",
   dataType: ["Survey (FNDDS)"],
   pagesize: 1,
   location: "Y",
   time: "lunch",
-  dietary: ["diary", "eggs", "gluten", "soy"] 
+  dietary: ["dairy", "eggs", "gluten", "soy"] 
 }
 
 export const Vegetable_Pizza = {
-  query: "Philly Cheese Steak Pizza",
+  query: "Vegetable Pizza",
   dataType: ["Survey (FNDDS)"],
   pagesize: 1,
   location: "Y",
@@ -225,7 +225,7 @@ export const Grilled_Chicken_Burger = {
 }
 
 export const BBQ_Chicken_Sandwich = {
-  query: "BBQ Chicken Sandwich",
+  query: "BBQ Sandwich",
   dataType: ["Survey (FNDDS)"],
   pagesize: 1,
   location: "Y",
@@ -243,7 +243,7 @@ export const Grilled_Cheese = {
 }
 
 export const Steamed_Corn = {
-  query: "Steamed Corn",
+  query: "Corn",
   dataType: ["Survey (FNDDS)"],
   pagesize: 1,
   location: "Y",
@@ -261,7 +261,7 @@ export const Mac_and_Cheese = {
 }
 
 export const Italian_Meatballs_Pasta = {
-  query: "Italian Meatballs Pasta",
+  query: "Italian Pasta",
   dataType: ["Survey (FNDDS)"],
   pagesize: 1,
   location: "Y",
@@ -279,7 +279,7 @@ export const Garlic_Bread = {
 }
 
 export const Italian_Sausage_Pizza = {
-  query: "Italian Sausage Pizza",
+  query: "Mexican Pizza",
   dataType: ["Survey (FNDDS)"],
   pagesize: 1,
   location: "Y",
@@ -351,7 +351,7 @@ export const Spaghetti = {
 }
 
 export const Bow_Tie_Pasta = {
-  query: "Bow Tie Pasta",
+  query: "Pasta",
   dataType: ["Survey (FNDDS)"],
   pagesize: 1,
   location: "Y",
@@ -360,7 +360,7 @@ export const Bow_Tie_Pasta = {
 }
 
 export const Tomato_Soup = {
-  query: "Tomato_Soup",
+  query: "Tomato Soup",
   dataType: ["Survey (FNDDS)"],
   pagesize: 1,
   location: "Y",
@@ -369,7 +369,7 @@ export const Tomato_Soup = {
 }
 
 export const Potato_Soup = {
-  query: "Potato_Soup",
+  query: "Potato Soup",
   dataType: ["Survey (FNDDS)"],
   pagesize: 1,
   location: "Y",
@@ -396,7 +396,7 @@ export const Egg_Cheese_Wrap = {
 }
 
 export const Chicken_Cutlet = {
-  query: "Chicken Cutlet",
+  query: "Chicken",
   dataType: ["Survey (FNDDS)"],
   pagesize: 1,
   location: "Y",
@@ -405,7 +405,7 @@ export const Chicken_Cutlet = {
 }
 
 export const Pasta_with_Shrimp = {
-  query: "Pasta_with_Shrimp",
+  query: "Pasta Shrimp",
   dataType: ["Survey (FNDDS)"],
   pagesize: 1,
   location: "Y",
@@ -432,7 +432,7 @@ export const Spiral_Pasta_with_Chicken = {
 }
 
 export const Chilled_Pasta_Salad  = {
-  query: "Chilled Pasta Salad",
+  query: "Pasta Salad",
   dataType: ["Survey (FNDDS)"],
   pagesize: 1,
   location: "Y",
@@ -459,7 +459,7 @@ export const  Vegetable_Biryani = {
 }
 
 export const Tandoori_Chicken = {
-  query: "Tandoori Chicken",
+  query: "Chicken",
   dataType: ["Survey (FNDDS)"],
   pagesize: 1,
   location: "Y",
@@ -477,7 +477,7 @@ export const Minestrone_Soup = {
 }
 
 export const Bacon_Egg_Cheese = {
-  query: "Minestrone Soup",
+  query: "Bacon Egg Cheese",
   dataType: ["Survey (FNDDS)"],
   pagesize: 1,
   location: "Y",
@@ -508,7 +508,7 @@ export const North_Diner = {
 
   lunch: [Chicken_Cutlet, Pasta_with_Shrimp, Pasta_Primavera, Spiral_Pasta_with_Chicken, Cheese_Pizza, Chilled_Pasta_Salad, Italian_Sausage_Pizza, Pepperoni_Pizza, Vegetable_Pizza, Butter_Chicken, Vegetable_Biryani, Tandoori_Chicken, Samosas, Tomato_Soup, Ice_Cream, Brownie, Minestrone_Soup],
 
-  diner: [Mac_and_Cheese, Cheese_Pizza, Chilled_Pasta_Salad, Italian_Sausage_Pizza, Pepperoni_Pizza, Vegetable_Pizza, Butter_Chicken, Tandoori_Chicken, Vegetable_Biryani, Samosas, Tomato_Soup, Minestrone_Soup, Ice_Cream, Brownie, Cheesecake]
+  dinner: [Mac_and_Cheese, Cheese_Pizza, Chilled_Pasta_Salad, Italian_Sausage_Pizza, Pepperoni_Pizza, Vegetable_Pizza, Butter_Chicken, Tandoori_Chicken, Vegetable_Biryani, Samosas, Tomato_Soup, Minestrone_Soup, Ice_Cream, Brownie, Cheesecake]
 }
 
 export const South_Diner = {
