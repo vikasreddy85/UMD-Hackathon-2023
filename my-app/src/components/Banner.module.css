@@ -8,44 +8,51 @@
   margin-top: 2.5vh;
   height: 35vh;
   width: 100%;
-  background-image: url(https://ggwash.org/images/posts/201506-032142.png);
   display: flex;
 }
 
-.position {
-  height: 20vh;
-  width: 100%;
-  display: inline-block;
-}
-
-.opacity{
-  opacity: 0.8;
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 .image {
-  height: 35vh;
-  background-image: url(https://cdn.winsightmedia.com/platform/files/public/2022-11/background/Blank%201800%20x%20945%20%2814%29.jpg?VersionId=IwANrhYsyWg60l9xsxAzWKVl5jLKSayT);
+  flex-basis: 50%;
+  height: 100%;
+  width: 50%;
   background-repeat: no-repeat;
-  background-size: contain;
-  background-position: 70%;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  animation: fade 10s ease-in-out infinite;
 }
 
 .text {
-  margin-top: 10px;
-  width: 70%;
-  height: 50px;
-  padding: 60px;
-  margin-left: 25px;
-  font-size: 40px;
-  font-family: 'Raleway', sans-serif;
-  color: white;
+  width: 100%;
+  max-width: 50%;
+  position: absolute;
+  top: 40%;
+  left: 25%;
+  transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 30px;
+  font-family: 'Raleway', sans-serif;
+  color: crimson;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  position: relative;
 }
-
-

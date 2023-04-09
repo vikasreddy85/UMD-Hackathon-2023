@@ -82,8 +82,8 @@ const Form = (props) => {
   return (
     <div className={classes.container}>
       <div className={classes.inputs}>
-        <form onSubmit={handleSubmit}>
-          Name:
+        <h1 className={classes.header}>My-Fitterp-Pal</h1>
+        <form onSubmit={handleSubmit}>          
           <input
             type="text"
             value={name}
@@ -91,7 +91,6 @@ const Form = (props) => {
             placeholder="Enter your name"
           />
           <br />
-          Age:
           <input
             type="text"
             value={age}
@@ -99,7 +98,12 @@ const Form = (props) => {
             placeholder="Enter your age"
           />
           <br />
-          Height:
+            <select value={unit} onChange={handleUnitChange}>
+                <option value="kg">kg / cm</option>
+                <option value="lbs">lbs / ft</option>
+            </select>
+          <br/>
+          <label htmlFor="height">Height</label>
           {unit === "kg" ? (
             <input
               type="text"
@@ -124,39 +128,31 @@ const Form = (props) => {
             </>
           )}
           <br />
-                    Weight:
-                    <input
-                        type="text"
-                        value={weight}
-                        onChange={handleWeightChange}
-                        placeholder="Enter your weight"
-                    />
-                    <br/>
-                    Metric:
-                    <select value={unit} onChange={handleUnitChange}>
-                        <option value="kg">kg / cm</option>
-                        <option value="lbs">lbs / ft</option>
-                    </select>
-                    <br/>
-                    Location:
-                    <select value={location} onChange={handleLocationChange}>
-                        <option value="South Diner"> South Diner</option>
-                        <option value="North Diner">North Diner</option>
-                        <option value="Y Diner">Yahentamitsi Dining Hall </option>
-                    </select>
-                    <br/>
-                    <br/>
-                    Dietary Restrictions:
-                    <select value={dietaryRestrictions}onChange={handleDietaryRestrictions}>
-                        <option value="none">None</option>
-                        <option value="soy">Soy</option>
-                        <option value="vegitarian">Vegitarian</option>
-                        <option value="dairy">Dairy</option>
-                        <option value="eggs">Eggs</option>
-                        <option value="gluten">Glutten</option>
-                    </select>
-                    <br/>
-          Active:
+          <label htmlFor="weight">Weight</label>
+          <input
+              type="text"
+              value={weight}
+              onChange={handleWeightChange}
+              placeholder="Enter your weight"
+          />
+          <br/>
+          <select value={location} onChange={handleLocationChange}>
+              <option value="South Diner"> South Diner</option>
+              <option value="North Diner">North Diner</option>
+              <option value="Y Diner">Yahentamitsi Dining Hall </option>
+          </select>
+          <br/>
+          <br/>
+          <select value={dietaryRestrictions}onChange={handleDietaryRestrictions}>
+              <option value="none">None</option>
+              <option value="soy">Soy</option>
+              <option value="vegitarian">Vegitarian</option>
+              <option value="dairy">Dairy</option>
+              <option value="eggs">Eggs</option>
+              <option value="gluten">Glutten</option>
+          </select>
+          <br/>
+          <p htmlFor="active">How active are you?</p>
           <input
             type="range"
             min="1"
@@ -166,11 +162,10 @@ const Form = (props) => {
             onChange={handleActiveChange}
             placeholder="Active state"
           />
-          <span>{active}</span>
+          <p><strong>{active}</strong></p>
           <br />
-          <label htmlFor="dropdown">Select an option:</label>
-          <label>
-            Goal:
+          <p>
+          Select your goal:
             <br />
             <input
               type="radio"
@@ -198,7 +193,7 @@ const Form = (props) => {
               onChange={handleGoalChange}
             />{" "}
             Bulk
-          </label>
+          </p>
           <br />
           <p>Selected option: {goal}</p>
           <button type="submit">Submit</button>

@@ -33,8 +33,14 @@ function App() {
 
   return (
     <div>
-      <Banner />
-      <Form onSubmit={handleFormSubmit} />
+      <div class="wrapper">
+        <div class="banner">
+          <Banner/>
+        </div>
+        <div class="form">
+          <Form/>
+        </div>
+      </div>
       <Quotes />
     </div>
   );

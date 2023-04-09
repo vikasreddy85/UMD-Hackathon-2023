@@ -8,7 +8,7 @@ export const Pancakes_Plain = {
 };
 
 export const Pancakes_Chocolate_Chips = {
-  query: 'Pancakes Chocolate Chips',
+  query: 'Pancakes Chocolate',
   dataType: ["Survey (FNDDS)"],
   pagesize: 1,
   location: "Y",
@@ -35,7 +35,7 @@ export const Sandwich = {
 };
 
 export const Grilled_Hot_Dog = {
-  query: 'Grilled Hot Dog',
+  query: 'Hot Dog',
   dataType: ["Survey (FNDDS)"],
   pagesize: 1,
   location: "Y",
@@ -44,7 +44,7 @@ export const Grilled_Hot_Dog = {
 }
 
 export const Onion_Marmalade_Sandwich = {
-  query: 'Onion Marmalade Sandwich',
+  query: 'Onion Sandwich',
   dataType: ["Survey (FNDDS)"],
   pagesize: 1,
   location: "Y",
@@ -136,7 +136,7 @@ export const Cornbread ={
 }
 
 export const Croissant ={
-  query: 'Cornbread',
+  query: 'Croissant',
   dataType: ["Survey (FNDDS)"],
   pagesize: 1,
   location: "Y",
@@ -145,7 +145,7 @@ export const Croissant ={
 }
 
 export const Buffalo_Chicken_Pizza  = {
-  query: 'Rozogalo',
+  query: 'Buffalo wing',
   dataType: ["Survey (FNDDS)"],
   pagesize: 1,
   location: "Y",
@@ -163,7 +163,7 @@ export const Cheese_Pizza  = {
 }
 
 export const Margherita_Pizza  = {
-  query: 'Margherita Pizza',
+  query: 'Cheese Pizza',
   dataType: ["Survey (FNDDS)"],
   pagesize: 1,
   location: "Y",
@@ -198,7 +198,7 @@ export const Pesto_Pasta = {
 }
 
 export const Philly_Cheese_Steak_Pizza = {
-  query: "Philly Cheese Steak Pizza",
+  query: "Pizza",
   dataType: ["Survey (FNDDS)"],
   pagesize: 1,
   location: "Y",
@@ -207,7 +207,7 @@ export const Philly_Cheese_Steak_Pizza = {
 }
 
 export const Vegetable_Pizza = {
-  query: "Philly Cheese Steak Pizza",
+  query: "Vegetable Pizza",
   dataType: ["Survey (FNDDS)"],
   pagesize: 1,
   location: "Y",
@@ -225,7 +225,7 @@ export const Grilled_Chicken_Burger = {
 }
 
 export const BBQ_Chicken_Sandwich = {
-  query: "BBQ Chicken Sandwich",
+  query: "BBQ Sandwich",
   dataType: ["Survey (FNDDS)"],
   pagesize: 1,
   location: "Y",
@@ -243,7 +243,7 @@ export const Grilled_Cheese = {
 }
 
 export const Steamed_Corn = {
-  query: "Steamed Corn",
+  query: "Corn",
   dataType: ["Survey (FNDDS)"],
   pagesize: 1,
   location: "Y",
@@ -261,7 +261,7 @@ export const Mac_and_Cheese = {
 }
 
 export const Italian_Meatballs_Pasta = {
-  query: "Italian Meatballs Pasta",
+  query: "Italian Pasta",
   dataType: ["Survey (FNDDS)"],
   pagesize: 1,
   location: "Y",
@@ -279,7 +279,7 @@ export const Garlic_Bread = {
 }
 
 export const Italian_Sausage_Pizza = {
-  query: "Italian Sausage Pizza",
+  query: "Mexican Pizza",
   dataType: ["Survey (FNDDS)"],
   pagesize: 1,
   location: "Y",
@@ -351,7 +351,7 @@ export const Spaghetti = {
 }
 
 export const Bow_Tie_Pasta = {
-  query: "Bow Tie Pasta",
+  query: "Pasta",
   dataType: ["Survey (FNDDS)"],
   pagesize: 1,
   location: "Y",
@@ -360,7 +360,7 @@ export const Bow_Tie_Pasta = {
 }
 
 export const Tomato_Soup = {
-  query: "Tomato_Soup",
+  query: "Tomato Soup",
   dataType: ["Survey (FNDDS)"],
   pagesize: 1,
   location: "Y",
@@ -369,7 +369,7 @@ export const Tomato_Soup = {
 }
 
 export const Potato_Soup = {
-  query: "Potato_Soup",
+  query: "Potato Soup",
   dataType: ["Survey (FNDDS)"],
   pagesize: 1,
   location: "Y",
@@ -396,7 +396,7 @@ export const Egg_Cheese_Wrap = {
 }
 
 export const Chicken_Cutlet = {
-  query: "Chicken Cutlet",
+  query: "Chicken",
   dataType: ["Survey (FNDDS)"],
   pagesize: 1,
   location: "Y",
@@ -405,7 +405,7 @@ export const Chicken_Cutlet = {
 }
 
 export const Pasta_with_Shrimp = {
-  query: "Pasta_with_Shrimp",
+  query: "Pasta Shrimp",
   dataType: ["Survey (FNDDS)"],
   pagesize: 1,
   location: "Y",
@@ -432,7 +432,7 @@ export const Spiral_Pasta_with_Chicken = {
 }
 
 export const Chilled_Pasta_Salad  = {
-  query: "Chilled Pasta Salad",
+  query: "Pasta Salad",
   dataType: ["Survey (FNDDS)"],
   pagesize: 1,
   location: "Y",
@@ -459,7 +459,7 @@ export const  Vegetable_Biryani = {
 }
 
 export const Tandoori_Chicken = {
-  query: "Tandoori Chicken",
+  query: "Chicken",
   dataType: ["Survey (FNDDS)"],
   pagesize: 1,
   location: "Y",
@@ -477,7 +477,7 @@ export const Minestrone_Soup = {
 }
 
 export const Bacon_Egg_Cheese = {
-  query: "Minestrone Soup",
+  query: "Bacon Egg Cheese",
   dataType: ["Survey (FNDDS)"],
   pagesize: 1,
   location: "Y",
