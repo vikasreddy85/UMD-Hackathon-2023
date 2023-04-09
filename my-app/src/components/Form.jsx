@@ -5,7 +5,8 @@ const Form = (props) => {
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [unit, setUnit] = useState("kg");
-  const [height, setHeight] = useState("");
+  const [heightFt, setHeightFt] = useState("");
+  const [heightIn, setHeightIn] = useState("");
   const [weight, setWeight] = useState("");
   const [location, setLocation] = useState("South Diner");
   const [active, setActive] = useState(3.0);
@@ -28,8 +29,12 @@ const Form = (props) => {
     setUnit(event.target.value);
   };
 
-  const handleHeightChange = (event) => {
-    setHeight(event.target.value);
+  const handleHeightFtChange = (event) => {
+    setHeightFt(event.target.value);
+  };
+
+  const handleHeightInChange = (event) => {
+    setHeightIn(event.target.value);
   };
 
   const handleWeightChange = (event) => {
@@ -55,7 +60,7 @@ const Form = (props) => {
         name,
         age,
         unit,
-        height,
+        height: `${heightFt} ft ${heightIn} in`,
         weight,
         location,
         active,
@@ -75,33 +80,50 @@ const Form = (props) => {
   };
 
   return (
-        <div className={classes.container}>
-            <div className={classes.inputs}>
-                <form onSubmit={handleSubmit}>
-                    Name:
-                    <input
-                        type="text"
-                        value={name}
-                        onChange={handleNameChange}
-                        placeholder="Enter your name"
-                    />
-                    <br />
-                    Age:
-                    <input
-                        type="text"
-                        value={age}
-                        onChange={handleAgeChange}
-                        placeholder="Enter your age"
-                    />
-                    <br />
-                    Height:
-                    <input
-                        type="text"
-                        value={height}
-                        onChange={handleHeightChange}
-                        placeholder="Enter your height"
-                    />
-                    <br/>
+    <div className={classes.container}>
+      <div className={classes.inputs}>
+        <form onSubmit={handleSubmit}>
+          Name:
+          <input
+            type="text"
+            value={name}
+            onChange={handleNameChange}
+            placeholder="Enter your name"
+          />
+          <br />
+          Age:
+          <input
+            type="text"
+            value={age}
+            onChange={handleAgeChange}
+            placeholder="Enter your age"
+          />
+          <br />
+          Height:
+          {unit === "kg" ? (
+            <input
+              type="text"
+              value={heightFt}
+              onChange={handleHeightFtChange}
+              placeholder="Enter your height in cm"
+            />
+          ) : (
+            <>
+              <input
+                type="text"
+                value={heightFt}
+                onChange={handleHeightFtChange}
+                placeholder="Enter your height in ft"
+              />
+              <input
+                type="text"
+                value={heightIn}
+                onChange={handleHeightInChange}
+                placeholder="Enter your height in in"
+              />
+            </>
+          )}
+          <br />
                     Weight:
                     <input
                         type="text"
