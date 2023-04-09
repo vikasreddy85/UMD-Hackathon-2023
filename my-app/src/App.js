@@ -1813,7 +1813,7 @@ function App() {
           <Banner/>
         </div>
         <div classname={classes.form}>
-          <Form/>
+          <Form onSubmit={handleFormSubmit}/>
         </div>
       </div>
     </div>
