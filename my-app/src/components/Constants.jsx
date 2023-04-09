@@ -49,7 +49,7 @@ export const Onion_Marmalade_Sandwich = {
   pagesize: 1,
   location: "Y",
   time: "lunch",
-  dietary: ["diary", "eggs", "gluten", "soy"]
+  dietary: ["dairy", "eggs", "gluten", "soy"]
 }
 
 export const Chorizo = {
@@ -58,7 +58,7 @@ export const Chorizo = {
   pagesize: 1,
   location: "Y",
   time: "lunch",
-  dietary: ["diary", "soy"]
+  dietary: ["dairy", "soy"]
 }
 
 export const French_Toast = {
@@ -67,7 +67,7 @@ export const French_Toast = {
   pagesize: 1,
   location: "Y",
   time: "lunch",
-  dietary: ["diary", "eggs", "gluten", "soy", "vegetarian"]
+  dietary: ["dairy", "eggs", "gluten", "soy", "vegetarian"]
 }
 
 export const English_Muffin = {
@@ -76,7 +76,7 @@ export const English_Muffin = {
   pagesize: 1,
   location: "Y",
   time: "lunch",
-  dietary: ["diary", "gluten", "soy", "vegetarian"]
+  dietary: ["dairy", "gluten", "soy", "vegetarian"]
 }
 
 export const Greek_Yogurt = {
@@ -85,7 +85,7 @@ export const Greek_Yogurt = {
   pagesize: 1,
   location: "Y",
   time: "lunch",
-  dietary: ["diary", "vegetarian"]
+  dietary: ["dairy", "vegetarian"]
 }
 
 export const Yogurt = {
@@ -94,7 +94,7 @@ export const Yogurt = {
   pagesize: 1,
   location: "Y",
   time: "lunch",
-  dietary: ["diary", "vegetarian"]
+  dietary: ["dairy", "vegetarian"]
 }
 
 export const Strawberry_Yogurt = {
@@ -103,7 +103,7 @@ export const Strawberry_Yogurt = {
   pagesize: 1,
   location: "Y",
   time: "lunch",
-  dietary: ["diary", "vegetarian"]
+  dietary: ["dairy", "vegetarian"]
 }
 
 
@@ -113,7 +113,7 @@ export const Biscuit = {
   pagesize: 1,
   location: "Y",
   time: "lunch",
-  dietary: ["diary", "gluten", "vegetarian"]
+  dietary: ["dairy", "gluten", "vegetarian"]
 }
 
 export const Mashed_Potatoes ={
@@ -122,7 +122,7 @@ export const Mashed_Potatoes ={
   pagesize: 1,
   location: "Y",
   time: "lunch",
-  dietary: ["diary", "vegetarian"]
+  dietary: ["dairy", "vegetarian"]
 }
 
 
@@ -132,7 +132,7 @@ export const Cornbread ={
   pagesize: 1,
   location: "Y",
   time: "lunch",
-  dietary: ["diary", "eggs", "vegetarian"]
+  dietary: ["dairy", "eggs", "vegetarian"]
 }
 
 export const Croissant ={
@@ -141,7 +141,7 @@ export const Croissant ={
   pagesize: 1,
   location: "Y",
   time: "lunch",
-  dietary: ["diary", "gluten", "eggs", "soy", "vegetarian"]
+  dietary: ["dairy", "gluten", "eggs", "soy", "vegetarian"]
 }
 
 export const Buffalo_Chicken_Pizza  = {
@@ -150,7 +150,7 @@ export const Buffalo_Chicken_Pizza  = {
   pagesize: 1,
   location: "Y",
   time: "lunch",
-  dietary: ["diary", "eggs", "gluten", "soy"] 
+  dietary: ["dairy", "eggs", "gluten", "soy"] 
 }
 
 export const Cheese_Pizza  = {
@@ -159,7 +159,7 @@ export const Cheese_Pizza  = {
   pagesize: 1,
   location: "Y",
   time: "lunch",
-  dietary: ["gluten", "diary", "soy", "vegetarian", "eggs"] 
+  dietary: ["gluten", "dairy", "soy", "vegetarian", "eggs"] 
 }
 
 export const Margherita_Pizza  = {
@@ -168,7 +168,7 @@ export const Margherita_Pizza  = {
   pagesize: 1,
   location: "Y",
   time: "lunch",
-  dietary: ["gluten", "diary", "soy", "eggs"] 
+  dietary: ["gluten", "dairy", "soy", "eggs"] 
 }
 export const Pepperoni_Pizza  = {
   query: 'Pepperoni Pizza',
@@ -176,7 +176,7 @@ export const Pepperoni_Pizza  = {
   pagesize: 1,
   location: "Y",
   time: "lunch",
-  dietary: ["gluten", "diary", "soy", "eggs"] 
+  dietary: ["gluten", "dairy", "soy", "eggs"] 
 }
 
 export const White_Chicken = {
@@ -185,7 +185,7 @@ export const White_Chicken = {
   pagesize: 1,
   location: "Y",
   time: "lunch",
-  dietary: ["diary"] 
+  dietary: ["dairy"] 
 }
 
 export const Pesto_Pasta = {
@@ -194,7 +194,7 @@ export const Pesto_Pasta = {
   pagesize: 1,
   location: "Y",
   time: "lunch",
-  dietary: ["diary", "gluten", "vegetarian"] 
+  dietary: ["dairy", "gluten", "vegetarian"] 
 }
 
 export const Philly_Cheese_Steak_Pizza = {
@@ -203,7 +203,7 @@ export const Philly_Cheese_Steak_Pizza = {
   pagesize: 1,
   location: "Y",
   time: "lunch",
-  dietary: ["diary", "eggs", "gluten", "soy"] 
+  dietary: ["dairy", "eggs", "gluten", "soy"] 
 }
 
 export const Vegetable_Pizza = {

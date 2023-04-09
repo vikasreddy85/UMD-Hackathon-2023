@@ -3,7 +3,7 @@ import Banner from "./components/Banner";
 import Form from "./components/Form";
 import Quotes from "./components/Quotes";
 import { Yahentamitsi, South_Diner, North_Diner } from './components/Constants';
-import './App.css';
+import classes from './App.css';
 
 function App() {
   let total_bmr;
@@ -33,11 +33,11 @@ function App() {
 
   return (
     <div>
-      <div class="wrapper">
-        <div class="banner">
+      <div className= {classes.wrapper}>
+        <div className ={classes.banner}>
           <Banner/>
         </div>
-        <div class="form">
+        <div classname={classes.form}>
           <Form/>
         </div>
       </div>
