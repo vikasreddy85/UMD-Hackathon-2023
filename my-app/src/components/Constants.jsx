@@ -508,7 +508,7 @@ export const North_Diner = {
 
   lunch: [Chicken_Cutlet, Pasta_with_Shrimp, Pasta_Primavera, Spiral_Pasta_with_Chicken, Cheese_Pizza, Chilled_Pasta_Salad, Italian_Sausage_Pizza, Pepperoni_Pizza, Vegetable_Pizza, Butter_Chicken, Vegetable_Biryani, Tandoori_Chicken, Samosas, Tomato_Soup, Ice_Cream, Brownie, Minestrone_Soup],
 
-  diner: [Mac_and_Cheese, Cheese_Pizza, Chilled_Pasta_Salad, Italian_Sausage_Pizza, Pepperoni_Pizza, Vegetable_Pizza, Butter_Chicken, Tandoori_Chicken, Vegetable_Biryani, Samosas, Tomato_Soup, Minestrone_Soup, Ice_Cream, Brownie, Cheesecake]
+  dinner: [Mac_and_Cheese, Cheese_Pizza, Chilled_Pasta_Salad, Italian_Sausage_Pizza, Pepperoni_Pizza, Vegetable_Pizza, Butter_Chicken, Tandoori_Chicken, Vegetable_Biryani, Samosas, Tomato_Soup, Minestrone_Soup, Ice_Cream, Brownie, Cheesecake]
 }
 
 export const South_Diner = {

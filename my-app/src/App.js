@@ -41,7 +41,6 @@ function App() {
           <Form/>
         </div>
       </div>
-      <Quotes />
     </div>
   );
 }
