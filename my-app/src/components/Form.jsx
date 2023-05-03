@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import classes from "./Form.module.css";
+import Result from "./Result"
+import { useNavigate, BrowserRouter} from "react-router-dom";
 
 const Form = (props) => {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [unit, setUnit] = useState("kg");
@@ -12,6 +15,7 @@ const Form = (props) => {
   const [active, setActive] = useState(3.0);
   const [goal, setGoal] = useState("");
   const [dietaryRestrictions, setDietaryRestrictions] = useState("none");
+  const [submitted, setSubmitted] = useState(false);
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -52,8 +56,7 @@ const Form = (props) => {
   const handleDietaryRestrictions = (event) => {
     setDietaryRestrictions(event.target.value);
   };
-
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     if (name.trim() !== "" && !isNaN(age) && !isNaN(weight)) {
       const formData = {
@@ -68,7 +71,9 @@ const Form = (props) => {
         goal,
         dietaryRestrictions,
       };
-      props.onSubmit(formData);
+      localStorage.setItem("result", props.onSubmit(formData));
+      setSubmitted(true);
+      navigate("/Result");
     } else {
       alert("Please enter a valid name, age, and weight.");
     }
@@ -144,7 +149,7 @@ const Form = (props) => {
           </select>
           <br/>
           <br/>
-          <select value={dietaryRestrictions}onChange={handleDietaryRestrictions}>
+          <select value={dietaryRestrictions}onChange={handleDietaryRestrictions}> {/* Select Multiple */}
               <option value="none">None</option>
               <option value="soy">Soy</option>
               <option value="vegetarian">Vegetarian</option>
@@ -197,8 +202,8 @@ const Form = (props) => {
           </p>
           <br />
           <p>Selected option: {goal}</p>
-          <button type="submit">Submit</button>
-          <button type="button" onClick={handleClear}>
+            <button type="submit">Submit</button>
+            <button type="button" onClick={handleClear}>
             Clear
           </button>
         </form>

@@ -1,6 +1,8 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Banner from "./components/Banner";
 import Form from "./components/Form";
+import Result from "./components/Result"
 import Quotes from "./components/Quotes";
 import { Yahentamitsi, South_Diner, North_Diner } from './components/Constants';
 import classes from './App.css';
@@ -1801,22 +1803,29 @@ function App() {
         });      
       }
     }
+
+
   }
 
   function getData(key){
     return fetch(key).then(response => response.json());
   }
   return (
-    <div>
-      <div className= {classes.wrapper}>
-        <div className ={classes.banner}>
-          <Banner/>
-        </div>
-        <div classname={classes.form}>
-          <Form onSubmit={handleFormSubmit}/>
-        </div>
-      </div>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={
+          <div className={classes.wrapper}>
+            <div className={classes.banner}>
+              <Banner />
+            </div>
+            <div className={classes.form}>
+              <Form onSubmit={handleFormSubmit} />
+            </div>
+          </div>
+        } />
+        <Route path="/Result" element={<Result />} />
+      </Routes>
+    </Router>
   );
 }
 
